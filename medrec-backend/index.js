@@ -41,7 +41,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(passport.initialize());
@@ -52,7 +52,8 @@ passport.use(new localStrategy(Doctor.authenticate()));
 passport.serializeUser(Doctor.serializeUser());
 passport.deserializeUser(Doctor.deserializeUser());
 
-app.use("/", require("./routes/api"));
+app.use("/userinfo", require("./routes/doctor"));
+app.use("/", require("./routes/user"));
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

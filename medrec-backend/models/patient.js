@@ -24,3 +24,5 @@ const patientSchema = new Schema({
     },
   ],
 });
+
+module.exports = model("Patient", patientSchema);

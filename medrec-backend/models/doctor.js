@@ -6,6 +6,18 @@ const doctorSchema = new Schema({
     type: String,
     unique: true,
   },
+  specialization: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  p_no: {
+    type: Number,
+    required: true,
+  },
 });
 
 doctorSchema.plugin(passportLocalMongoose);

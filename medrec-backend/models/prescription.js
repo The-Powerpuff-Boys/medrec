@@ -27,3 +27,5 @@ const prescriptionSchema = new Schema({
     },
   ],
 });
+
+module.expoort = model("Prescription", prescriptionSchema);

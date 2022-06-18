@@ -1,7 +1,11 @@
  function change(val) {
+
      var filename = val.replace(/^.*[\\\/]/, '')
      document.getElementById("uploadFile").innerHTML = filename;
+
+
  };
+
 
  function EnableDisable(InputEmail1) {
      //Reference the Button.
@@ -25,3 +29,4 @@
          btnSubmit.className = "btn btn-primary";
      }
  };
+ document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
