@@ -27,7 +27,7 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
   final TextEditingController _doctorController = TextEditingController();
   final TextEditingController _patientController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
-  final TextEditingController _diseasesController = TextEditingController();
+  final TextEditingController _medicineController = TextEditingController();
 
   final List<String> _diseases = [];
 
@@ -36,7 +36,7 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
     _doctorController.dispose();
     _patientController.dispose();
     _dateController.dispose();
-    _diseasesController.dispose();
+    _medicineController.dispose();
     super.dispose();
   }
 
@@ -118,26 +118,27 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
                 ),
                 const SizedBox(height: 10),
                 MedRecTextForm(
-                  label: 'Add Diseases',
-                  controller: _diseasesController,
+                  label: 'Add Medicines',
+                  controller: _medicineController,
                   trailingIcon: true,
                   onTap: () {
-                    if (_diseasesController.text.isNotEmpty) {
+                    if (_medicineController.text.isNotEmpty) {
                       ref.watch(diseasesChipProvider.notifier).update((state) {
                         state.add(Chip(
-                          label: Text(_diseasesController.text),
+                          label: Text(_medicineController.text),
                         ));
                         return state;
                       });
 
                       setState(() {
-                        _diseases.add(_diseasesController.text);
-                        _diseasesController.clear();
+                        _diseases.add(_medicineController.text);
+                        _medicineController.clear();
                       });
                     }
                   },
                 ),
                 Wrap(
+                  spacing: 10,
                   children: ref.watch(diseasesChipProvider),
                 ),
                 const SizedBox(height: 20),
@@ -168,9 +169,4 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
   }
 }
 
-// Date
-// Doctor name
-// Testreport - bool
-// Patient  Descritption
-// Doctor Descritption
-// Medicine [ array]
+
