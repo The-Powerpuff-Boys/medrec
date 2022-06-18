@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medrec_app/screens/add_disease_screen.dart';
 import 'package:medrec_app/screens/add_patient_record_screen.dart';
+import 'package:medrec_app/screens/disease_screen.dart';
 import 'package:medrec_app/screens/form_confirm_submit_page.dart';
 import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/screens/patient_screen.dart';
@@ -38,6 +40,14 @@ class MedRecRoutes {
       case PatientScreen.routename:
         return MaterialPageRoute<void>(
           builder: (context) => const PatientScreen(),
+        );
+      case DiseaseScreen.routename:
+        return MaterialPageRoute<void>(
+          builder: (context) => const DiseaseScreen(),
+        );
+      case AddDiseaseScreen.routename:
+        return MaterialPageRoute<void>(
+          builder: (context) => const AddDiseaseScreen(),
         );
       default:
         return MaterialPageRoute(

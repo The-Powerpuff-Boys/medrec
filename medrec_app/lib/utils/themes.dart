@@ -16,4 +16,7 @@ class MedRecTheme {
           ),
         ),
       );
+
+  static const TextStyle titleStyle =
+      TextStyle(fontWeight: FontWeight.bold, color: Color(0xff0C6CB7));
 }

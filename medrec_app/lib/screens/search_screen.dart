@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medrec_app/screens/patient_screen.dart';
+import 'package:medrec_app/utils/themes.dart';
 import 'package:medrec_app/widgets/patient_card.dart';
 
 final aadharNumberProvider = StateProvider<String>((ref) {
@@ -26,8 +27,7 @@ class SearchScreen extends ConsumerWidget {
         appBar: AppBar(
           title: const Text(
             'Search Patient',
-            style: TextStyle(
-                fontWeight: FontWeight.bold, color: Color(0xff0C6CB7)),
+            style: MedRecTheme.titleStyle,
           ),
           centerTitle: true,
         ),
