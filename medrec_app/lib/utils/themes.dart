@@ -10,6 +10,7 @@ class MedRecTheme {
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          centerTitle: true,
           iconTheme: IconThemeData(
             color: Colors.black87,
           ),

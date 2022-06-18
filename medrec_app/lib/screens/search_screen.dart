@@ -25,7 +25,7 @@ class SearchScreen extends ConsumerWidget {
           title: const Text(
             'Search Patient',
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: Color(0xff2AA4BC)),
+                fontWeight: FontWeight.bold, color: Color(0xff0C6CB7)),
           ),
           centerTitle: true,
         ),
@@ -41,7 +41,7 @@ class SearchScreen extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.blue.shade900,
+                        color: const Color(0xff0C6CB7),
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(25),
@@ -57,7 +57,7 @@ class SearchScreen extends ConsumerWidget {
                         prefixIcon: FaIcon(
                           FontAwesomeIcons.magnifyingGlass,
                           size: 20,
-                          color: Color(0xff2AA4BC),
+                          color: Color(0xff0C6CB7),
                         ),
                         prefixIconConstraints:
                             BoxConstraints.tightFor(width: 25, height: 23),

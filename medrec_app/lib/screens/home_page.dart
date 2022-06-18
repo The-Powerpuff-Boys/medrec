@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medrec_app/screens/add_patient_record_screen.dart';
 import 'package:medrec_app/screens/coming_soon.dart';
 import 'package:medrec_app/screens/search_screen.dart';
 import 'package:medrec_app/widgets/cards.dart';
@@ -94,11 +95,15 @@ class HomePage extends ConsumerWidget {
                     Navigator.of(context).pushNamed(SearchScreen.routname);
                   },
                 ),
-                const MedRecCard(
+                MedRecCard(
                   title: 'Add Record',
                   subtitle: 'Add a new patient record',
                   url: 'assets/icons/file.png',
                   transform: false,
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(AddPatientRecordScreen.routename);
+                  },
                 ),
               ],
             )
