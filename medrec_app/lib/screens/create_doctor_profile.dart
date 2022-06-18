@@ -15,11 +15,11 @@ enum Gender {
   select,
 }
 
-final genderProvider = StateProvider<Gender>((ref) {
+final genderProvider = StateProvider.autoDispose<Gender>((ref) {
   return Gender.select;
 });
 
-final fileProvider = StateProvider<PlatformFile?>((ref) {
+final fileProvider = StateProvider.autoDispose<PlatformFile?>((ref) {
   return;
 });
 
