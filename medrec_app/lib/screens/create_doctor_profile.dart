@@ -61,7 +61,6 @@ class _CreateDoctorProfileScreenState
   final ImagePicker _imagePicker = ImagePicker();
 
   XFile? _image;
-  PlatformFile? _licenseFile;
 
   void _pickProfileImage() async {
     XFile? image = await _imagePicker.pickImage(source: ImageSource.gallery);
@@ -178,17 +177,6 @@ class _CreateDoctorProfileScreenState
                       controller: _phoneController,
                       type: TextInputType.phone,
                     ),
-                    // const Padding(
-                    //   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    //   child: Text(
-                    //     'Upload your Prescription',
-                    //     style: TextStyle(
-                    //       color: Color.fromARGB(255, 0, 82, 134),
-                    //       fontSize: 16,
-                    //       fontWeight: FontWeight.w600,
-                    //     ),
-                    //   ),
-                    // ),
                     Row(
                       children: [
                         ElevatedButton(

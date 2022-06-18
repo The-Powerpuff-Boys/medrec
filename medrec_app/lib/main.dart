@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:medrec_app/screens/create_doctor_profile.dart';
 import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/utils/routes.dart';
 import 'package:medrec_app/utils/themes.dart';
@@ -26,7 +25,7 @@ class _MedRecAppState extends ConsumerState<MedRecApp> {
       title: 'MedRec',
       theme: MedRecTheme.mainTheme(),
       debugShowCheckedModeBanner: false,
-      home: const CreateDoctorProfileScreen(),
+      home: const AuthChecker(),
       onGenerateRoute: (settings) => MedRecRoutes.generateRoute(settings),
     );
   }

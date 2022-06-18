@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medrec_app/screens/login_page.dart';
 
 class FormConfirmSubmitPage extends StatelessWidget {
+  static const String routename = '/form_confirm_submit';
   const FormConfirmSubmitPage({Key? key}) : super(key: key);
 
   @override
