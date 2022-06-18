@@ -139,6 +139,54 @@ class _CreateDoctorProfileScreenState
                       label: 'Phone Number',
                       controller: _phoneController,
                     ),
+                    // const Padding(
+                    //   padding: EdgeInsets.symmetric(horizontal: 8.0),
+                    //   child: Text(
+                    //     'Upload your Prescription',
+                    //     style: TextStyle(
+                    //       color: Color.fromARGB(255, 0, 82, 134),
+                    //       fontSize: 16,
+                    //       fontWeight: FontWeight.w600,
+                    //     ),
+                    //   ),
+                    // ),
+                    Row(
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('Upload License')),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 12.0),
+                          child: AutoSizeText(
+                            'No File chosen',
+                            maxLines: 1,
+                            wrapWords: true,
+                            overflow: TextOverflow.fade,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Center(
+                      child: MaterialButton(
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        color: const Color(0xff02538A),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 16,
+                        ),
+                        textColor: Colors.white,
+                        child: const Text(
+                          'Submit',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
