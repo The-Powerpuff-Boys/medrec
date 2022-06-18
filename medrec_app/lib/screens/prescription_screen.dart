@@ -6,8 +6,12 @@ import 'package:intl/intl.dart';
 import 'package:medrec_app/utils/themes.dart';
 import 'package:medrec_app/widgets/medrec_text_form.dart';
 
-final testReportsProvider = StateProvider<bool>((ref) {
+final testReportsProvider = StateProvider.autoDispose<bool>((ref) {
   return false;
+});
+
+final diseasesChipProvider = StateProvider.autoDispose<List<Chip>>((ref) {
+  return [];
 });
 
 class PrescriptionScreen extends ConsumerStatefulWidget {
@@ -23,6 +27,18 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
   final TextEditingController _doctorController = TextEditingController();
   final TextEditingController _patientController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _diseasesController = TextEditingController();
+
+  final List<String> _diseases = [];
+
+  @override
+  void dispose() {
+    _doctorController.dispose();
+    _patientController.dispose();
+    _dateController.dispose();
+    _diseasesController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +115,30 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
                           }),
                     ],
                   ),
+                ),
+                const SizedBox(height: 10),
+                MedRecTextForm(
+                  label: 'Add Diseases',
+                  controller: _diseasesController,
+                  trailingIcon: true,
+                  onTap: () {
+                    if (_diseasesController.text.isNotEmpty) {
+                      ref.watch(diseasesChipProvider.notifier).update((state) {
+                        state.add(Chip(
+                          label: Text(_diseasesController.text),
+                        ));
+                        return state;
+                      });
+
+                      setState(() {
+                        _diseases.add(_diseasesController.text);
+                        _diseasesController.clear();
+                      });
+                    }
+                  },
+                ),
+                Wrap(
+                  children: ref.watch(diseasesChipProvider),
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
