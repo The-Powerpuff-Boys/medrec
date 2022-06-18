@@ -1,0 +1,43 @@
+body {
+    font-family: 'Poppins';
+}
+
+.Heading {
+    font-weight: 900;
+    color: #005EA7;
+    padding: 0px 0px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    padding: 0px 0px;
+}
+
+.left {
+    width: 50%;
+    padding: 0px 0px;
+    margin-left: -100px;
+    margin-top: 150px;
+}
+
+.right {
+    display: block;
+    justify-content: center;
+    width: 50%;
+    padding: 0px 0px;
+    margin-right: 0px;
+    margin-top: 150px;
+    align-items: center;
+}
+
+.form-control {
+    display: block;
+    width: 85%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #445366;
+    outline: none;
+    background-color: transparent;
+}
