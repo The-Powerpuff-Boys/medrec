@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../widgets/medrec_text_form.dart';
 
@@ -13,6 +17,10 @@ enum Gender {
 
 final genderProvider = StateProvider<Gender>((ref) {
   return Gender.select;
+});
+
+final fileProvider = StateProvider<PlatformFile?>((ref) {
+  return;
 });
 
 class CreateDoctorProfileScreen extends ConsumerStatefulWidget {
@@ -50,8 +58,35 @@ class _CreateDoctorProfileScreenState
     ),
   ];
 
+  final ImagePicker _imagePicker = ImagePicker();
+
+  XFile? _image;
+  PlatformFile? _licenseFile;
+
+  void _pickProfileImage() async {
+    XFile? image = await _imagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      _image = image;
+    });
+  }
+
+  void _pickFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['pdf'],
+    );
+
+    if (result != null) {
+      ref.watch(fileProvider.notifier).update((state) => result.files.single);
+    }
+  }
+
   @override
   void dispose() {
+    _nameController.dispose();
+    _phoneController.dispose();
+    _specilizationController.dispose();
+
     super.dispose();
   }
 
@@ -96,10 +131,13 @@ class _CreateDoctorProfileScreenState
                     ),
                     Center(
                       child: GestureDetector(
-                        onTap: () {},
-                        child: const CircleAvatar(
+                        onTap: _pickProfileImage,
+                        child: CircleAvatar(
                           radius: 64,
-                          backgroundImage: AssetImage('assets/profile.png'),
+                          backgroundImage: _image == null
+                              ? const AssetImage('assets/profile.png')
+                                  as ImageProvider<Object>
+                              : FileImage(File(_image!.path)),
                         ),
                       ),
                     ),
@@ -138,6 +176,7 @@ class _CreateDoctorProfileScreenState
                     MedRecTextForm(
                       label: 'Phone Number',
                       controller: _phoneController,
+                      type: TextInputType.phone,
                     ),
                     // const Padding(
                     //   padding: EdgeInsets.symmetric(horizontal: 8.0),
@@ -153,12 +192,14 @@ class _CreateDoctorProfileScreenState
                     Row(
                       children: [
                         ElevatedButton(
-                            onPressed: () {},
+                            onPressed: _pickFile,
                             child: const Text('Upload License')),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 12.0),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 12.0),
                           child: AutoSizeText(
-                            'No File chosen',
+                            ref.watch(fileProvider) == null
+                                ? 'No File chosen'
+                                : ref.watch(fileProvider)!.name,
                             maxLines: 1,
                             wrapWords: true,
                             overflow: TextOverflow.fade,
