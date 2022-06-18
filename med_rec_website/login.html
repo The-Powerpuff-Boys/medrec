@@ -15,35 +15,38 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="left">
-            <h1 class="Heading">Login</h1>
-            <h5 style="padding: 25px 0px;">Don't have and account? <a href="javascript:void(0);" onclick="window.location.href='signup.html'">Sign Up</a> </h5>
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onkeyup="EnableDisable(this)">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="InputPassword1" placeholder="Password" onkeyup="EnableDisable(this)">
-                </div>
+    <div class="web">
+        <div class="container">
+            <div class="left">
+                <h1 class="Heading">Login</h1>
+                <h6 style="color:rgb(132, 132, 132);padding: 0em 0em;padding-bottom: 1em;">Don't have and account? <a href="javascript:void(0);" onclick="window.location.href='signup.html'">Sign Up</a>
+                </h6>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onkeyup="EnableDisable(this)">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="InputPassword1" placeholder="Password" onkeyup="EnableDisable(this)">
+                    </div>
 
-                <button type="submit" id="submit" class="btn btn-secondary" disabled=disabled>Login</button>
-            </form>
-        </div>
+                    <button type="submit" id="submit" class="btn btn-secondary" disabled=disabled>Login</button>
 
-        <hr style="transform: rotate(90deg); margin-top: 45vh;" width="50%" height="10px" color="#808080">
-        <div class="right">
-            <center>
-                <img style="margin: -50px auto; " src="Med Rec UI/Med Rec UI/logo.png" alt="logo" width="60%">
-            </center>
-            <lottie-player style="margin-top:  -200px;" src="https://assets9.lottiefiles.com/packages/lf20_iivslabn.json" background="transparent" speed="1" style="width: 694px; height: 463px;" loop autoplay></lottie-player>
 
+                </form>
+            </div>
+
+            <div class="right">
+                <center>
+                    <img style="margin:0em; " src="Med Rec UI/Med Rec UI/logo.png" alt="logo" width="50%">
+                </center>
+                <lottie-player style="margin-top: -10em;" src="https://assets9.lottiefiles.com/packages/lf20_iivslabn.json" background="transparent" speed="1" style="width: 694px; height: 463px;" loop autoplay></lottie-player>
+
+            </div>
         </div>
     </div>
-
 </body>
 
 </html>

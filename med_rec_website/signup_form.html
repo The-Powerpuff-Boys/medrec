@@ -15,38 +15,42 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="left">
-            <h1 class="Heading">Hello Doctor</h1>
-            <h5 style="padding: 25px 0px; color:#636364">We need some details to prove that you are doctor. After verification you gain access to our patients data </h5>
-            <form>
-                <div class="form-group">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Enter email" onkeyup="EnableDisable(this)">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="Qual">Enter Your Specialization</label>
-                    <input type="text" class="form-control" id="Qual" placeholder="Enter Your Specialization" onkeyup="EnableDisable(this)">
-                </div>
-                <h6 style="margin-top:25px;">Upload your Certificate (.png,.jpg,.pdf)</h6>
+    <div class="web">
+        <div class="container">
+            <div class="left">
+                <h3 class="Heading">Hello Doctor,</h3>
+                <h6>
+                    <h6 style="text-align:justify; padding: 0em; color:#636364">We need some details to prove that you are doctor. After verification you gain access to our patients data </h6>
 
-                <!-- <button type="browse" id="submit" class="btn btn-primary">Select your file</button>
-                <small style="display:inline-block" class="form-text text-muted">ENTER FILENAME FROM SERVER</small> -->
-                <div class="fileUpload btn btn-primary">
-                    <span>Upload</span>
-                    <input id="uploadBtn" type="file" id="u_button" class="upload" onchange="change(this.value)" />
-                </div>
-                <h6 style="background-color: transparent; border:none; outline: none; display: inline-block; " id="uploadFile">File Name</h6>
+                    <form>
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" class="form-control" id="fullname" aria-describedby="fullname" placeholder="Enter Name" onkeyup="EnableDisable(this)">
 
-                <button type="submit" style="display:block;" class="btn btn-primary btn-lg">Go to Next Page</button>
-            </form>
-        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Qual">Enter Your Specialization</label>
+                            <input type="text" class="form-control" id="Qual" placeholder="Enter Your Specialization" onkeyup="EnableDisable(this)">
+                        </div>
+                        <h6 style="margin-top:1em;">Upload your Certificate (.png,.jpg,.pdf)</h6>
 
 
-        <div class="right">
+                        <small style="display:inline-block" class="form-text text-muted">ENTER FILENAME FROM SERVER</small>
+                        <div class="fileUpload btn btn-primary">
+                            <span>Upload</span>
+                            <input id="uploadBtn" type="file" id="u_button" class="upload btn-sm" onchange="change(this.value)" />
+                        </div>
+                        <h6 style="background-color: transparent; border:none; outline: none; display: inline-block; " id="uploadFile">File Name</h6>
 
-            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_l13zwx3i.json" background="transparent" speed="1" style="width: 600px; height: 600px;" loop autoplay></lottie-player>
+                        <button type="submit" style="display:block;" class="btn btn-primary">Go to Next Page</button>
+                    </form>
+            </div>
+            </h6>
+
+            <div class="right">
+
+                <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_l13zwx3i.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
+            </div>
         </div>
     </div>
 

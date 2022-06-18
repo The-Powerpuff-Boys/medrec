@@ -5,20 +5,32 @@ body {
 .Heading {
     font-weight: 900;
     color: #005EA7;
-    padding: 0px 0px;
+    padding: 0em 0em;
+}
+
+.web {
+    background-color: whitesmoke;
+    margin: 0%;
+    height: 100vh;
 }
 
 .container {
-    height: 100vh;
+    box-shadow: 1em 0.5em 1em rgb(215, 215, 215);
+    border-radius: 2em;
+    background-color: white;
+    transform: translateY(20vh);
+    height: 60vh;
+    width: 50%;
     display: flex;
-    padding: 0px 0px;
+    padding: 0em;
+    overflow: hidden;
 }
 
 .left {
     width: 50%;
-    padding: 0px 0px;
-    margin-left: -100px;
-    margin-top: 150px;
+    padding: 3em;
+    margin-left: 0em;
+    margin-top: 0em;
 }
 
 .right {
@@ -27,15 +39,15 @@ body {
     width: 50%;
     padding: 0px 0px;
     margin-right: 0px;
-    margin-top: 150px;
+    margin-top: 0em;
     align-items: center;
 }
 
 .form-control {
     display: block;
-    width: 85%;
-    margin-top: 10px;
-    padding-bottom: 10px;
+    width: 100%;
+    /* margin-top: 1em;
+    padding-bottom: 1em; */
     border: none;
     border-bottom: 1px solid #445366;
     outline: none;
