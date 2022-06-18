@@ -52,8 +52,10 @@ passport.use(new localStrategy(Doctor.authenticate()));
 passport.serializeUser(Doctor.serializeUser());
 passport.deserializeUser(Doctor.deserializeUser());
 
-app.use("/userinfo", require("./routes/doctor"));
 app.use("/", require("./routes/user"));
+app.use("/patientinfo", require("./routes/patient"));
+app.use("/disease", require("./routes/disease"));
+app.use("/flutter", require("./routes/flutter/api"));
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
