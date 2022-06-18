@@ -5,16 +5,14 @@ const { register } = require("../models/doctor");
 const router = express.Router();
 const Doctor = require("../models/doctor");
 const Patient = require("../models/patient");
+const Disease = require("../models/disease");
 const { isLoggedIn } = require("../middleware");
 const { route } = require("./user");
 
-router.get("/", (req, res) => {
-  res.render("patientinfo");
+router.get("/new", (req, res) => {
+  res.render("newdisease");
 });
 
-router.post("/", async (req, res) => {
-  const { abha } = req.body;
-  const patient = await Patient.findOne({ abha }).populate({})
-});
+router.post("/new")
 
 module.exports = router;
