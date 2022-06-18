@@ -15,6 +15,7 @@ router.post("/new", async (req, res) => {
   const { name, specialization, gender, p_no } = req.body;
   const newDoctor = await new Doctor({ name, specialization, gender, p_no });
   await newDoctor.save();
+  res.redirect("home");
 });
 
 // router.get("/", async (req, res) => {

@@ -35,19 +35,19 @@
             Don't have and account?
             <a
               href="javascript:void(0);"
-              onclick="window.location.href='signup.html'"
+              onclick="window.location.href='/signup'"
               >Sign Up</a
             >
           </h6>
-          <form>
+          <form action="/login" method="POST">
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label for="exampleInputEmail1">Username</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
                 id="InputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
+                name="username"
+                placeholder="Enter Username"
                 onkeyup="EnableDisable(this)"
               />
               <small id="emailHelp" class="form-text text-muted"
@@ -60,6 +60,7 @@
                 type="password"
                 class="form-control"
                 id="InputPassword1"
+                name="password"
                 placeholder="Password"
                 onkeyup="EnableDisable(this)"
               />
