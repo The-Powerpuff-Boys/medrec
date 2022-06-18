@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medrec_app/screens/patient_screen.dart';
+import 'package:medrec_app/widgets/patient_card.dart';
 
 final aadharNumberProvider = StateProvider<String>((ref) {
   return '';
@@ -73,6 +75,11 @@ class SearchScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
+                  PatientCard(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(PatientScreen.routename);
+                    },
+                  )
                 ],
               ),
             ),
