@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medrec_app/screens/login_page.dart';
+import 'package:medrec_app/screens/prescription_screen.dart';
 import 'package:medrec_app/utils/routes.dart';
 import 'package:medrec_app/utils/themes.dart';
 
@@ -25,7 +26,7 @@ class _MedRecAppState extends ConsumerState<MedRecApp> {
       title: 'MedRec',
       theme: MedRecTheme.mainTheme(),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const PrescriptionScreen(),
       onGenerateRoute: (settings) => MedRecRoutes.generateRoute(settings),
     );
   }
@@ -36,7 +37,7 @@ class AuthChecker extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const isLoggedIn = false;
+    const isLoggedIn = true;
     if (isLoggedIn == true) {
       return const HomePage(); // It's a simple basic screen showing the home page
     } else if (isLoggedIn == false) {

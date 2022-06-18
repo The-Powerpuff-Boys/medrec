@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class MedRecTextForm extends StatelessWidget {
   final String label;
   final TextInputType type;
+  final int? maxLines;
   final TextEditingController controller;
   const MedRecTextForm({
     Key? key,
+    this.maxLines,
     required this.label,
     required this.controller,
     this.type = TextInputType.text,
@@ -20,6 +22,7 @@ class MedRecTextForm extends StatelessWidget {
         enableIMEPersonalizedLearning: true,
         enableSuggestions: true,
         keyboardType: type,
+        maxLines: maxLines,
         decoration: InputDecoration(
             labelText: label,
             labelStyle: const TextStyle(
