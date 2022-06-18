@@ -11,6 +11,7 @@ final testReportsProvider = StateProvider<bool>((ref) {
 });
 
 class PrescriptionScreen extends ConsumerStatefulWidget {
+  static const routename = '/prescription';
   const PrescriptionScreen({Key? key}) : super(key: key);
 
   @override
