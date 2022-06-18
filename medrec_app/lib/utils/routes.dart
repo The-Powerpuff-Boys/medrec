@@ -5,6 +5,7 @@ import 'package:medrec_app/screens/disease_screen.dart';
 import 'package:medrec_app/screens/form_confirm_submit_page.dart';
 import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/screens/patient_screen.dart';
+import 'package:medrec_app/screens/prescription_screen.dart';
 import 'package:medrec_app/screens/search_screen.dart';
 
 import '../screens/coming_soon.dart';
@@ -48,6 +49,10 @@ class MedRecRoutes {
       case AddDiseaseScreen.routename:
         return MaterialPageRoute<void>(
           builder: (context) => const AddDiseaseScreen(),
+        );
+      case PrescriptionScreen.routename:
+        return MaterialPageRoute<void>(
+          builder: (context) => const PrescriptionScreen(),
         );
       default:
         return MaterialPageRoute(
