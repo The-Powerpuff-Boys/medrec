@@ -18,6 +18,10 @@ const doctorSchema = new Schema({
     type: Number,
     required: true,
   },
+  verified: {
+    type: Boolean,
+    required: true
+  }
 });
 
 doctorSchema.plugin(passportLocalMongoose);
