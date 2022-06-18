@@ -16,3 +16,5 @@ const diseaseSchema = new Schema({
     required: true,
   },
 });
+
+module.exports = model("Disease", diseaseSchema);
