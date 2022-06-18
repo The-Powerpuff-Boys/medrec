@@ -21,6 +21,7 @@ class PrescriptionScreen extends ConsumerStatefulWidget {
 class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
   final TextEditingController _doctorController = TextEditingController();
   final TextEditingController _patientController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,7 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 16.0),
                   child: DateTimeField(
+                    controller: _dateController,
                     decoration: InputDecoration(
                         labelText: 'Date',
                         labelStyle: const TextStyle(
@@ -68,7 +70,7 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
                 ),
                 MedRecTextForm(
                   label: 'Patient Description',
-                  controller: _doctorController,
+                  controller: _patientController,
                   maxLines: 4,
                 ),
                 MedRecTextForm(
