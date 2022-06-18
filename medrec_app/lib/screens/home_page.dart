@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,27 +17,30 @@ class HomePage extends ConsumerWidget {
         child: Column(
           children: [
             DrawerHeader(
+                padding: EdgeInsets.zero,
                 child: Stack(
-              fit: StackFit.expand,
-              children: [
-                SizedBox(
-                  child: Image.network(
-                    // TODO:
+                  fit: StackFit.expand,
+                  children: [
+                    SizedBox(
+                      child: CachedNetworkImage(
+                        // TODO:
 
-                    'https://images.unsplash.com/photo-1644982647869-e1337f992828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const Positioned(
-                  bottom: 5,
-                  child: Text('Dr. Tarika',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold)),
-                ),
-              ],
-            )),
+                        imageUrl:
+                            'https://images.unsplash.com/photo-1644982647869-e1337f992828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const Positioned(
+                      bottom: 5,
+                      left: 5,
+                      child: Text('Dr. Tarika',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                )),
             ListTile(
               leading: const FaIcon(FontAwesomeIcons.person),
               title: const Text('View Profile'),

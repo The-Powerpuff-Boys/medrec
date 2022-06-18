@@ -18,6 +18,9 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_launcher_icons: ^0.9.3
   auto_size_text: ^3.0.0
+  cached_network_image: ^3.2.1
+  image_picker: ^0.8.5+3
+  file_picker: ^3.0.4
 
 
 dev_dependencies:
