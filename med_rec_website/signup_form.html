@@ -11,6 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="./js/signup_form.js"></script>
     <link rel="stylesheet" href="./css/signup_form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
 
@@ -20,9 +21,13 @@
             <div class="left">
                 <h3 class="Heading">Hello Doctor,</h3>
                 <h6>
-                    <h6 style="text-align:justify; padding: 0em; color:#636364">We need some details to prove that you are doctor. After verification you gain access to our patients data </h6>
 
                     <form>
+
+                        <div class="upload-button">
+                            <div class="display-image"></div>
+                        </div>
+                        <input class="file-upload" type="file" accept="image/*" />
                         <div class="form-group">
                             <label for="fullname">Full Name</label>
                             <input type="text" class="form-control" id="fullname" aria-describedby="fullname" placeholder="Enter Name" onkeyup="EnableDisable(this)">
