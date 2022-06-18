@@ -6,14 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../utils/gender.dart';
 import '../widgets/medrec_text_form.dart';
 
-enum Gender {
-  male,
-  female,
-  nil,
-  select,
-}
+
 
 final genderProvider = StateProvider.autoDispose<Gender>((ref) {
   return Gender.select;

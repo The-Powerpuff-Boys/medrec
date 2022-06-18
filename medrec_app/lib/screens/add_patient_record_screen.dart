@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../utils/gender.dart';
 import '../widgets/medrec_text_form.dart';
+
+final genderProvider = StateProvider.autoDispose<Gender>((ref) {
+  return Gender.select;
+});
 
 class AddPatientRecordScreen extends ConsumerStatefulWidget {
   static const String routename = '/add_patient_record';
@@ -21,6 +26,26 @@ class _AddPatientRecordScreenState
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _abhaController = TextEditingController();
+
+  final List<DropdownMenuItem<Gender>> _dropdownMenuItems = [
+    const DropdownMenuItem(
+      value: Gender.select,
+      enabled: false,
+      child: Text('Select Gender'),
+    ),
+    const DropdownMenuItem(
+      value: Gender.male,
+      child: Text('Male'),
+    ),
+    const DropdownMenuItem(
+      value: Gender.female,
+      child: Text('Female'),
+    ),
+    const DropdownMenuItem(
+      value: Gender.nil,
+      child: Text('Prefer Not to say'),
+    ),
+  ];
 
   final ImagePicker _imagePicker = ImagePicker();
 
@@ -88,6 +113,27 @@ class _AddPatientRecordScreenState
                     label: 'Age',
                     controller: _abhaController,
                     type: TextInputType.number,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    margin: const EdgeInsets.only(bottom: 15),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 140, 140, 140),
+                          width: 1,
+                        ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10))),
+                    child: DropdownButton<Gender>(
+                        value: ref.watch(genderProvider),
+                        isExpanded: true,
+                        items: _dropdownMenuItems,
+                        onChanged: (gender) {
+                          ref
+                              .watch(genderProvider.state)
+                              .update((state) => gender!);
+                        }),
                   ),
                   MedRecTextForm(
                     label: 'Aadhar Card Number',
