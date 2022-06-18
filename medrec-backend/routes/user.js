@@ -30,11 +30,18 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const username = email;
-    const doctor = new Doctor({ username });
+    const { email, username, password, name, specialization, gender, p_no } =
+      req.body;
+    const doctor = new Doctor({
+      username,
+      email,
+      name,
+      specialization,
+      gender,
+      p_no,
+    });
     const newDoctor = await Doctor.register(doctor, password);
-    res.send(newDoctor);
+    res.redirect("successsignup");
   } catch (error) {
     res.send("Error Occured while making a new user");
     console.log(error);
@@ -52,16 +59,16 @@ router.post(
     failureRedirect: "/login",
   }),
   (req, res) => {
-    res.send("Logged in the user");
+    res.redirect("/");
   }
 );
 
-router.get("/logout", (req, res) => {
+router.get("/logout", isLoggedIn, (req, res) => {
   req.logout((err) => {
     if (err) {
       res.send("Error in Logging you out");
     }
-    res.send("Logged out a user");
+    res.redirect("/login");
   });
 });
 /*
