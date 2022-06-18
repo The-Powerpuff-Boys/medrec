@@ -20,46 +20,47 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="left">
-            <h1 class="Heading">Hello Doctor</h1>
-            <h5 style="padding: 25px 0px; color:#636364">We need some details to prove that you are doctor. After verification you gain access to our patients data </h5>
-            <form>
-                <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <div style="display:block;" class="btn-group">
-                        <button type="button" id="dp_button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="web">
+        <div class="container">
+            <div class="left">
+                <h1 class="Heading">Hello Doctor</h1>
+                <h5 style="padding: 1em 0px; color:#636364">We need some details to prove that you are doctor. After verification you gain access to our patients data </h5>
+                <form>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <div style="display:block;" class="btn-group">
+                            <button type="button" id="dp_button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Select
                         </button>
-                        <div class="dropdown-menu">
-                            <a onclick="dropdown(this.innerHTML);" class="dropdown-item" href="#">Male</a>
-                            <a onclick="dropdown(this.innerHTML);" class="dropdown-item" href="#">Female</a>
-                            <a onclick="dropdown(this.innerHTML);" class="dropdown-item" href="#">Prefer not to say</a>
+                            <div class="dropdown-menu">
+                                <a onclick="dropdown(this.innerHTML);" class="dropdown-item" href="#">Male</a>
+                                <a onclick="dropdown(this.innerHTML);" class="dropdown-item" href="#">Female</a>
+                                <a onclick="dropdown(this.innerHTML);" class="dropdown-item" href="#">Prefer not to say</a>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="phno">Phone No.</label>
-                    <input type="text" class="form-control" id="phno" aria-describedby="phno" placeholder="Phone Number" onkeyup="EnableDisable(this)">
+                    <div class="form-group">
+                        <label for="phno">Phone No.</label>
+                        <input type="text" class="form-control" id="phno" aria-describedby="phno" placeholder="Phone Number" onkeyup="EnableDisable(this)">
 
-                </div>
+                    </div>
 
-                <button type="submit" style="display:block;" class="btn btn-primary">Submit</button>
+                    <button type="submit" style="display:block;" class="btn btn-primary">Submit</button>
 
-                <!-- <button type="browse" id="submit" class="btn btn-primary">Select your file</button>
+                    <!-- <button type="browse" id="submit" class="btn btn-primary">Select your file</button>
                 <small style="display:inline-block" class="form-text text-muted">ENTER FILENAME FROM SERVER</small> -->
 
-            </form>
-        </div>
+                </form>
+            </div>
 
 
-        <div class="right">
+            <div class="right">
 
-            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_l13zwx3i.json" background="transparent" speed="1" style="width: 600px; height: 600px;" loop autoplay></lottie-player>
+                <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_l13zwx3i.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
+            </div>
         </div>
     </div>
-
 </body>
 
 </html>
