@@ -25,7 +25,7 @@ class _MedRecAppState extends ConsumerState<MedRecApp> {
       title: 'MedRec',
       theme: MedRecTheme.mainTheme(),
       debugShowCheckedModeBanner: false,
-      home: const AuthChecker(),
+      home: const HomePage(),
       onGenerateRoute: (settings) => MedRecRoutes.generateRoute(settings),
     );
   }

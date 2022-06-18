@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medrec_app/screens/add_patient_record_screen.dart';
 import 'package:medrec_app/screens/form_confirm_submit_page.dart';
 import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/screens/search_screen.dart';
@@ -29,7 +30,10 @@ class MedRecRoutes {
         return MaterialPageRoute<void>(
           builder: (context) => const SearchScreen(),
         );
-
+      case AddPatientRecordScreen.routename:
+        return MaterialPageRoute<void>(
+          builder: (context) => const AddPatientRecordScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
