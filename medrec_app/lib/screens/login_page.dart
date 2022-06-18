@@ -49,7 +49,6 @@ class _LoginPageState extends State<LoginPage> {
         type = Status.signUp;
       });
     }
-    // print(type);
   }
 
   @override

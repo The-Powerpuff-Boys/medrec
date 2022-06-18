@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medrec_app/screens/error_screen.dart';
 import 'package:medrec_app/screens/form_confirm_submit_page.dart';
 import 'package:medrec_app/screens/login_page.dart';
+import 'package:medrec_app/screens/search_screen.dart';
 
 import '../screens/coming_soon.dart';
 import '../screens/home_page.dart';
@@ -25,7 +25,11 @@ class MedRecRoutes {
         return MaterialPageRoute<void>(
           builder: (context) => const ComingSoonScreen(),
         );
-    
+      case SearchScreen.routname:
+        return MaterialPageRoute<void>(
+          builder: (context) => const SearchScreen(),
+        );
+
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(

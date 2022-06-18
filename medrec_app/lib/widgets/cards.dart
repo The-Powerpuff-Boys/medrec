@@ -8,12 +8,14 @@ class MedRecCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final bool transform;
+  final VoidCallback? onTap;
   const MedRecCard({
     Key? key,
     required this.url,
     this.transform = true,
     required this.title,
     required this.subtitle,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class MedRecCard extends StatelessWidget {
         Radius.circular(25),
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: onTap ?? () {},
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           decoration: BoxDecoration(
