@@ -8,7 +8,7 @@
             "type": "pwa-msedge",
             "request": "launch",
             "name": "Open login.html",
-            "file": "d:\\Med_Rec\\login.html"
+            "file": 
         }
     ]
 }
