@@ -6,24 +6,10 @@ const doctorSchema = new Schema({
     type: String,
     unique: true,
   },
-  specialization: {
-    type: String,
-    required: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  p_no: {
-    type: Number,
-    required: true,
-  },
-  verified: {
-    type: Boolean,
-    required: true,
-  },
 });
 
 doctorSchema.plugin(passportLocalMongoose);
 
-module.exports = model("Doctor", doctorSchema);
+const Doctor = model("Doctor", doctorSchema);
+
+module.exports = Doctor;
