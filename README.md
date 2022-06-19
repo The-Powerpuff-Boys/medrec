@@ -1,6 +1,7 @@
 <!-- <img src = 'download.jpg'> -->
 # Med-Rec
 <img width=200 src="./markdown_assests/logo.png">
+
 ##### A Patient's medical history.
 Med-Rec is a user-friendly platform for doctors to update and access a patient's medical history.
 
