@@ -21,7 +21,9 @@ class PatientScreen extends ConsumerWidget {
       return DiseaseListTile(
         disease: disease,
         onTap: () {
-          Navigator.of(context).pushNamed(DiseaseScreen.routename);
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: ((context) =>
+                  DiseaseScreen(prescriptions: disease.prescriptions))));
         },
       );
     }).toList();

@@ -61,6 +61,48 @@ class PatientNotifier extends StateNotifier<List<Patient>> {
               date: '2020-01-01',
               patientDescription:
                   'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+            ),
+            Prescription(
+              doctorName: 'Dr. Rohit',
+              doctorDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+              date: '2020-01-01',
+              patientDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+            ),
+            Prescription(
+              doctorName: 'Dr. Rohit',
+              doctorDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+              date: '2020-01-01',
+              patientDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+            )
+          ],
+        ),
+        Diseases(
+          name: 'Cholera',
+          prescriptions: [
+            Prescription(
+              doctorName: 'Dr. Rohit',
+              doctorDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+              date: '2020-01-01',
+              patientDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+            )
+          ],
+        ),
+        Diseases(
+          name: 'Yellow Fever',
+          prescriptions: [
+            Prescription(
+              doctorName: 'Dr. Rohit',
+              doctorDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
+              date: '2020-01-01',
+              patientDescription:
+                  'Et magna gubergren ut sanctus elitr stet. Duo ipsum sea et ipsum. Sit labore et dolores aliquyam rebum kasd invidunt.',
             )
           ],
         ),
