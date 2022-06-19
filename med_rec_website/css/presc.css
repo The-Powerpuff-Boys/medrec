@@ -10,10 +10,6 @@ body {
     display: block;
 }
 
-.list {
-    display: block;
-}
-
 .drop {
     display: inline-block;
 }
@@ -27,19 +23,6 @@ body {
 
 .search {
     width: 80%;
-}
-
-.list-group {
-    display: block;
-}
-
-.image {
-    display: none;
-}
-
-.image1 {
-    color: #0663BF;
-    display: none;
 }
 
 .flex {
