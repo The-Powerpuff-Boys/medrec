@@ -26,7 +26,7 @@ class PatientCard extends ConsumerWidget {
             children: [
               const CircleAvatar(
                 backgroundImage: CachedNetworkImageProvider(
-                    'https://images.unsplash.com/photo-1634409719592-7751d57c819d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'),
+                    'https://images.pexels.com/photos/4546132/pexels-photo-4546132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
                 radius: 48,
               ),
               const SizedBox(width: 15),
@@ -43,14 +43,14 @@ class PatientCard extends ConsumerWidget {
                       ),
                     ),
                     AutoSizeText(
-                      'Age: 25',
+                      'Age: 15',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w100,
                       ),
                     ),
                     AutoSizeText(
-                      'Gender: Male',
+                      'Gender: Female',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w100,

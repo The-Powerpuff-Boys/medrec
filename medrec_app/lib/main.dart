@@ -36,7 +36,7 @@ class AuthChecker extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const isLoggedIn = false;
+    const isLoggedIn = true;
     if (isLoggedIn == true) {
       return const HomePage(); // It's a simple basic screen showing the home page
     } else if (isLoggedIn == false) {

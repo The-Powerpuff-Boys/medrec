@@ -31,13 +31,13 @@ class PatientScreen extends ConsumerWidget {
                   child: CircleAvatar(
                       radius: 64,
                       backgroundImage: CachedNetworkImageProvider(
-                          'https://images.unsplash.com/photo-1634409719592-7751d57c819d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')),
+                          'https://images.pexels.com/photos/4546132/pexels-photo-4546132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 const AutoSizeText(
-                  'Age: 25 | Gender: Female',
+                  'Age: 15 | Gender: Female',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
