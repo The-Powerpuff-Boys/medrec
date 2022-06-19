@@ -5,8 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medrec_app/screens/add_patient_record_screen.dart';
 import 'package:medrec_app/screens/coming_soon.dart';
+import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/screens/search_screen.dart';
 import 'package:medrec_app/widgets/cards.dart';
+
+import '../providers/doctor_provider.dart';
 
 class HomePage extends ConsumerWidget {
   static const routename = '/home';
@@ -14,6 +17,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final doctorData = ref.watch(doctorProvider);
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(
@@ -26,20 +30,17 @@ class HomePage extends ConsumerWidget {
                   children: [
                     SizedBox(
                       child: CachedNetworkImage(
-                        // TODO:
-
-                        imageUrl:
-                            'https://images.unsplash.com/photo-1644982647869-e1337f992828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
+                        imageUrl: doctorData.imgUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       bottom: 5,
                       left: 5,
-                      child: Text('Dr. Tarika',
-                          style: TextStyle(
+                      child: Text(doctorData.fullName,
+                          style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 22,
                               fontWeight: FontWeight.bold)),
                     ),
                   ],
@@ -54,7 +55,9 @@ class HomePage extends ConsumerWidget {
             ListTile(
               leading: const FaIcon(FontAwesomeIcons.doorOpen),
               title: const Text('LogOut'),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed(LoginPage.routename);
+              },
             ),
           ],
         ),
@@ -64,9 +67,9 @@ class HomePage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AutoSizeText(
-              'Hello Dr. Tarika',
-              style: TextStyle(
+            AutoSizeText(
+              'Hello ${doctorData.fullName}',
+              style: const TextStyle(
                   fontSize: 26,
                   letterSpacing: 2.0,
                   fontWeight: FontWeight.bold,

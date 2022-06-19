@@ -10,6 +10,7 @@
 .svn/
 migrate_working_dir/
 
+dummy_data/
 # IntelliJ related
 *.iml
 *.ipr

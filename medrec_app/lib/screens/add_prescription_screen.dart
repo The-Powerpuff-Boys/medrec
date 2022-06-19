@@ -14,16 +14,16 @@ final diseasesChipProvider = StateProvider.autoDispose<List<Chip>>((ref) {
   return [];
 });
 
-class PrescriptionScreen extends ConsumerStatefulWidget {
+class AddPrescriptionScreen extends ConsumerStatefulWidget {
   static const routename = '/prescription';
-  const PrescriptionScreen({Key? key}) : super(key: key);
+  const AddPrescriptionScreen({Key? key}) : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
       _PrescriptionScreenState();
 }
 
-class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
+class _PrescriptionScreenState extends ConsumerState<AddPrescriptionScreen> {
   final TextEditingController _doctorController = TextEditingController();
   final TextEditingController _patientController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
@@ -144,7 +144,7 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(200, 60),
+                      fixedSize: const Size(150, 60),
                       primary: const Color(0xff2AA4BC),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -153,7 +153,7 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
                     ),
                     onPressed: () {},
                     child: const AutoSizeText(
-                      'Add Prescription',
+                      'Add Data',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -168,5 +168,3 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
     );
   }
 }
-
-

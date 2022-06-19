@@ -14,7 +14,8 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   const { abha } = req.body;
-  const patient = await Patient.findOne({ abha }).populate({})
+  const patient = await Patient.findOne({ abha }).populate({ path: "disease" });
+  console.log(patient);
 });
 
 module.exports = router;

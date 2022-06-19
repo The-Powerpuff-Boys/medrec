@@ -7,16 +7,28 @@ import 'package:medrec_app/screens/disease_screen.dart';
 import 'package:medrec_app/utils/themes.dart';
 import 'package:medrec_app/widgets/disease_list_tile.dart';
 
+import '../utils/gender.dart';
+import '../widgets/patient_card.dart';
+
 class PatientScreen extends ConsumerWidget {
   static const routename = '/patient';
   const PatientScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final patient = ref.watch(patientProvider);
+    final List<DiseaseListTile> tiles = patient!.diseases.map((disease) {
+      return DiseaseListTile(
+        disease: disease,
+        onTap: () {
+          Navigator.of(context).pushNamed(DiseaseScreen.routename);
+        },
+      );
+    }).toList();
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Ms. Pooja',
+        title: Text(
+          patient.fullName,
           style: MedRecTheme.titleStyle,
         ),
       ),
@@ -27,28 +39,29 @@ class PatientScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Center(
+                Center(
                   child: CircleAvatar(
                       radius: 64,
-                      backgroundImage: CachedNetworkImageProvider(
-                          'https://images.unsplash.com/photo-1634409719592-7751d57c819d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')),
+                      backgroundImage:
+                          CachedNetworkImageProvider(patient.imgUrl)),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                const AutoSizeText(
-                  'Age: 25 | Gender: Female',
-                  style: TextStyle(
+                AutoSizeText(
+                  'Age: ${patient.age} | Gender: ${patient.gender == Gender.male ? 'Male' : 'Female'}',
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 const SizedBox(height: 30),
-                DiseaseListTile(
-                  onTap: () {
-                    Navigator.of(context).pushNamed(DiseaseScreen.routename);
-                  },
-                ),
+                ...tiles,
+                // DiseaseListTile(
+                //   onTap: () {
+                //     Navigator.of(context).pushNamed(DiseaseScreen.routename);
+                //   },
+                // ),
               ],
             ),
           ),
