@@ -7,12 +7,14 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const localStrategy = require("passport-local");
+const MongoStore = require("connect-mongo");
 require("dotenv").config();
 
 const Doctor = require("./models/doctor");
 
+const db_url = process.env.DB_URL || "mongodb://localhost:27017/med-rec";
 mongoose
-  .connect("mongodb://localhost:27017/med-rec", {
+  .connect(db_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -24,9 +26,14 @@ mongoose
     console.log(err);
   });
 
+const secret = process.env.SESSION_SECRET || "hiiheelo";
+
 const port = process.env.PORT || 8080;
 const sessionConfig = {
-  secret: process.env.SESSION_SECRET,
+  secret: secret,
+  store: MongoStore.create({
+    mongoUrl: db_url,
+  }),
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -41,7 +48,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(passport.initialize());
@@ -52,7 +59,10 @@ passport.use(new localStrategy(Doctor.authenticate()));
 passport.serializeUser(Doctor.serializeUser());
 passport.deserializeUser(Doctor.deserializeUser());
 
-app.use("/", require("./routes/api"));
+app.use("/", require("./routes/user"));
+app.use("/patientinfo", require("./routes/patient"));
+app.use("/disease", require("./routes/disease"));
+app.use("/flutter", require("./routes/flutter/api"));
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

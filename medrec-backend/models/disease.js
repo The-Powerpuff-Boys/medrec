@@ -1,20 +1,19 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 
-const diseaseSchema = new Schema({
+const diseaseSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
   prescriptions: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "prescription",
     },
   ],
   lastprescriptiondate: {
     type: Date,
-    required: true,
   },
 });
 
-module.exports = model("Disease", diseaseSchema);
+module.exports = mongoose.model("Disease", diseaseSchema);

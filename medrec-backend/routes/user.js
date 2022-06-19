@@ -6,7 +6,7 @@ const router = express.Router();
 const Doctor = require("../models/doctor");
 const { isLoggedIn } = require("../middleware");
 
-router.get("/", async (req, res) => {
+router.get("/", isLoggedIn, async (req, res) => {
   const { _id } = req.user;
   const doctor = await Doctor.findById({ _id });
   res.render("home", { username: doctor.username });
@@ -43,7 +43,7 @@ router.post("/signup", async (req, res) => {
       p_no,
     });
     const newDoctor = await Doctor.register(doctor, password);
-    res.redirect("successsignup");
+    res.render("successsignup");
   } catch (error) {
     res.send("Error Occured while making a new user");
     console.log(error);

@@ -6,6 +6,7 @@ const router = express.Router();
 const Doctor = require("../models/doctor");
 const Patient = require("../models/patient");
 const Disease = require("../models/disease");
+const Prescription = require("../models/prescription");
 const { isLoggedIn } = require("../middleware");
 const { route } = require("./user");
 
@@ -13,6 +14,12 @@ router.get("/new", (req, res) => {
   res.render("newdisease");
 });
 
-router.post("/new")
+router.post("/new", async (req, res) => {
+  const { diseasename } = req.body;
+  const newDisease = await new Disease({ diseasename }).populate(
+    "prescriptions"
+  );
+  console.log(newDisease);
+});
 
 module.exports = router;

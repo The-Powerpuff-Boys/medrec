@@ -1,21 +1,13 @@
-function change(val) {
-    var filename = val.replace(/^.*[\\\/]/, '')
-    document.getElementById("uploadFile").innerHTML = filename;
-};
-
-function EnableDisable(temp) {
+function EnableDisable(InputEmail1) {
     //Reference the Button.
     var btnSubmit = document.getElementById("submit");
     var em = document.getElementById("InputEmail1");
     var pass = document.getElementById("InputPassword1");
     var pass1 = document.getElementById("InputPassword2");
-    var fn = document.getElementById("InputUsername1");
-    var l = document.getElementById("phno");
-    var upload = document.getElementById("License_Number");
-
+    var flag = 0;
     //Verify the TextBox value.
 
-    if (em.value == "" || pass.value == "" || pass1.value == "" || fn.value == "" || l.value == "" || upload.value == "") {
+    if (em.value == "" || pass.value == "" || pass1.value == "") {
 
 
 

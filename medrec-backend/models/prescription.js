@@ -1,12 +1,12 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 
-const prescriptionSchema = new Schema({
+const prescriptionSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
   },
   doctorId: {
-    type: Schema.ObjectId,
+    type: mongoose.Schema.ObjectId,
     required: true,
   },
   testreport: {
@@ -28,4 +28,4 @@ const prescriptionSchema = new Schema({
   ],
 });
 
-module.expoort = model("Prescription", prescriptionSchema);
+module.expoort = mongoose.model("Prescription", prescriptionSchema);

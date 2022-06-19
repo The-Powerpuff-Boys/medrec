@@ -1,15 +1,28 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-const doctorSchema = new Schema({
+const doctorSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
+  },
+  specialization: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  p_no: {
+    type: Number,
+    required: true,
+  },
+  verified: {
+    type: Boolean,
   },
 });
 
 doctorSchema.plugin(passportLocalMongoose);
 
-const Doctor = model("Doctor", doctorSchema);
-
-module.exports = Doctor;
+module.exports = mongoose.model("Doctor", doctorSchema);
