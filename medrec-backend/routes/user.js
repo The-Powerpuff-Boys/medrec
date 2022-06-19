@@ -6,8 +6,10 @@ const router = express.Router();
 const Doctor = require("../models/doctor");
 const { isLoggedIn } = require("../middleware");
 
-router.get("/", (req, res) => {
-  res.render("home", { visiters: "100M" });
+router.get("/", async (req, res) => {
+  const { _id } = req.user;
+  const doctor = await Doctor.findById({ _id });
+  res.render("home", { username: doctor.username });
 });
 /*
 
