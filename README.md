@@ -53,3 +53,15 @@ This page includes basic patient info and **list of diseases**.
 This page include **list of prescriptions** related to that disease. **Most recent prescription stay on top**.
 
 <img height=500 src="./markdown_assests/disease-page.jpg">
+
+#### Prescription page
+<img height=500 src="./markdown_assests/prescription.jpg">
+
+
+## The Powerpuff Boys team
+
+1. [Naman vyas]("www.github.com/coder-rancho"): Product Manager
+2. [Bishwajeet Parhi]("https://github.com/2002Bishwajeet"): App developer
+3. [Harsh Sharma]("https://github.com/harshsH-28"): Backend developer
+4. [Vidhu Mathur]("https://github.com/Kranium2002"): Frontend developer
+5. Swapnil Jha: PPT and stuff.
