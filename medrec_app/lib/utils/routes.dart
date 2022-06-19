@@ -5,7 +5,7 @@ import 'package:medrec_app/screens/disease_screen.dart';
 import 'package:medrec_app/screens/form_confirm_submit_page.dart';
 import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/screens/patient_screen.dart';
-import 'package:medrec_app/screens/prescription_screen.dart';
+import 'package:medrec_app/screens/add_prescription_screen.dart';
 import 'package:medrec_app/screens/search_screen.dart';
 
 import '../screens/coming_soon.dart';

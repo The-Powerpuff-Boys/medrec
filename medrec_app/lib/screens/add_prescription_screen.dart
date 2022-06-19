@@ -6,8 +6,12 @@ import 'package:intl/intl.dart';
 import 'package:medrec_app/utils/themes.dart';
 import 'package:medrec_app/widgets/medrec_text_form.dart';
 
-final testReportsProvider = StateProvider<bool>((ref) {
+final testReportsProvider = StateProvider.autoDispose<bool>((ref) {
   return false;
+});
+
+final diseasesChipProvider = StateProvider.autoDispose<List<Chip>>((ref) {
+  return [];
 });
 
 class PrescriptionScreen extends ConsumerStatefulWidget {
@@ -23,6 +27,18 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
   final TextEditingController _doctorController = TextEditingController();
   final TextEditingController _patientController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _medicineController = TextEditingController();
+
+  final List<String> _diseases = [];
+
+  @override
+  void dispose() {
+    _doctorController.dispose();
+    _patientController.dispose();
+    _dateController.dispose();
+    _medicineController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +116,31 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 10),
+                MedRecTextForm(
+                  label: 'Add Medicines',
+                  controller: _medicineController,
+                  trailingIcon: true,
+                  onTap: () {
+                    if (_medicineController.text.isNotEmpty) {
+                      ref.watch(diseasesChipProvider.notifier).update((state) {
+                        state.add(Chip(
+                          label: Text(_medicineController.text),
+                        ));
+                        return state;
+                      });
+
+                      setState(() {
+                        _diseases.add(_medicineController.text);
+                        _medicineController.clear();
+                      });
+                    }
+                  },
+                ),
+                Wrap(
+                  spacing: 10,
+                  children: ref.watch(diseasesChipProvider),
+                ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -128,9 +169,4 @@ class _PrescriptionScreenState extends ConsumerState<PrescriptionScreen> {
   }
 }
 
-// Date
-// Doctor name
-// Testreport - bool
-// Patient  Descritption
-// Doctor Descritption
-// Medicine [ array]
+
