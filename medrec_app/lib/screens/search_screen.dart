@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medrec_app/apis/Patient_record_notifier.dart';
 import 'package:medrec_app/screens/patient_screen.dart';
 import 'package:medrec_app/utils/themes.dart';
 import 'package:medrec_app/widgets/patient_card.dart';
@@ -17,6 +18,7 @@ class SearchScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final patients = ref.watch(patientsListProvider);
     return GestureDetector(
       onTap: () {
         if (FocusScope.of(context).hasFocus) {
@@ -76,6 +78,7 @@ class SearchScreen extends ConsumerWidget {
                     ),
                   ),
                   PatientCard(
+                    patient: patients.first,
                     onTap: () {
                       Navigator.of(context).pushNamed(PatientScreen.routename);
                     },
