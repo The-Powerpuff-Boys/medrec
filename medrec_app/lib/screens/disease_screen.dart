@@ -21,7 +21,17 @@ class DiseaseScreen extends ConsumerWidget {
         fit: StackFit.expand,
         children: [
           Column(
-            children: const [],
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Text('No Prescription Found',
+                    style: MedRecTheme.titleStyle.copyWith(
+                      color: Colors.black,
+                      fontSize: 24,
+                    )),
+              )
+            ],
           ),
           Positioned(
             bottom: 20,

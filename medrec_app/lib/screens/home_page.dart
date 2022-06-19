@@ -9,12 +9,15 @@ import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/screens/search_screen.dart';
 import 'package:medrec_app/widgets/cards.dart';
 
+import '../providers/doctor_provider.dart';
+
 class HomePage extends ConsumerWidget {
   static const routename = '/home';
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final doctorData = ref.watch(doctorProvider);
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(
@@ -27,16 +30,15 @@ class HomePage extends ConsumerWidget {
                   children: [
                     SizedBox(
                       child: CachedNetworkImage(
-                        imageUrl:
-                            'https://images.unsplash.com/photo-1622253694238-3b22139576c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80',
+                        imageUrl: doctorData.imgUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       bottom: 5,
                       left: 5,
-                      child: Text('Dr. Alex',
-                          style: TextStyle(
+                      child: Text(doctorData.fullName,
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 22,
                               fontWeight: FontWeight.bold)),
@@ -65,9 +67,9 @@ class HomePage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AutoSizeText(
-              'Hello Dr. Alex',
-              style: TextStyle(
+            AutoSizeText(
+              'Hello ${doctorData.fullName}',
+              style: const TextStyle(
                   fontSize: 26,
                   letterSpacing: 2.0,
                   fontWeight: FontWeight.bold,
