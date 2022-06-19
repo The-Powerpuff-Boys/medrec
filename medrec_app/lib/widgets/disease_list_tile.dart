@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:medrec_app/models/diseases.dart';
 
 class DiseaseListTile extends StatelessWidget {
   final VoidCallback? onTap;
-  const DiseaseListTile({Key? key, this.onTap}) : super(key: key);
+  final Diseases disease;
+  const DiseaseListTile({Key? key, this.onTap, required this.disease})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +21,10 @@ class DiseaseListTile extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(35),
             color: const Color.fromARGB(255, 64, 170, 232)),
-        child: const ListTile(
+        child: ListTile(
           title: Text(
-            'Disease Name',
-            style: TextStyle(
+            disease.name,
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),

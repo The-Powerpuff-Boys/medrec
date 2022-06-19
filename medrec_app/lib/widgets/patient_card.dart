@@ -6,6 +6,10 @@ import 'package:medrec_app/models/patient.dart';
 
 import '../utils/gender.dart';
 
+final patientProvider = StateProvider<Patient?>((ref) {
+  return;
+});
+
 class PatientCard extends ConsumerWidget {
   final VoidCallback? onTap;
   final Patient patient;
@@ -14,6 +18,7 @@ class PatientCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(patientProvider.notifier).update((state) => patient);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 18.0),
       child: InkWell(

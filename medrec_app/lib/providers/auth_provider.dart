@@ -5,3 +5,7 @@ import '../apis/authentication.dart';
 final authProvider = Provider<Authentication>((ref) {
   return Authentication();
 });
+
+final currentUserProvider = StateProvider<bool>((ref) {
+  return false;
+});
