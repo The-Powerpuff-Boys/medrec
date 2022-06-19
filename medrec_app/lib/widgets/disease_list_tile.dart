@@ -26,14 +26,6 @@ class DiseaseListTile extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          trailing: Text(
-            'View More',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w100,
-              fontSize: 12,
-            ),
-          ),
         ),
       ),
     );
