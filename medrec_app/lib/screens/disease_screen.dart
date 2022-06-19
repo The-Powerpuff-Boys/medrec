@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:medrec_app/screens/prescription_screen.dart';
+import 'package:medrec_app/screens/add_prescription_screen.dart';
 import 'package:medrec_app/utils/themes.dart';
 
 class DiseaseScreen extends ConsumerWidget {
