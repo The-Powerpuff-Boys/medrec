@@ -1,12 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:medrec_app/models/prescription.dart';
 import 'package:medrec_app/screens/add_prescription_screen.dart';
+import 'package:medrec_app/screens/prescription_screen.dart';
 import 'package:medrec_app/utils/themes.dart';
+import 'package:medrec_app/widgets/prescription_list_tile.dart';
 
 class DiseaseScreen extends ConsumerWidget {
   static const routename = '/disease';
-  const DiseaseScreen({Key? key}) : super(key: key);
+  final List<Prescription> prescriptions;
+  const DiseaseScreen({Key? key, required this.prescriptions})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,18 +25,19 @@ class DiseaseScreen extends ConsumerWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Text('No Prescription Found',
-                    style: MedRecTheme.titleStyle.copyWith(
-                      color: Colors.black,
-                      fontSize: 24,
-                    )),
-              )
-            ],
+          ListView.builder(
+            itemCount: prescriptions.length,
+            itemBuilder: (BuildContext context, int index) {
+              return PrescriptionListTile(
+                prescription: prescriptions[index],
+                index: index + 1,
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: ((context) => PrescriptionScreen(
+                          prescription: prescriptions[index]))));
+                },
+              );
+            },
           ),
           Positioned(
             bottom: 20,

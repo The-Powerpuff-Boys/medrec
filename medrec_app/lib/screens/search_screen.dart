@@ -19,6 +19,14 @@ class SearchScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final patients = ref.watch(patientsListProvider);
+    final List<PatientCard> patientCards = patients.map((patient) {
+      return PatientCard(
+        patient: patient,
+        onTap: () {
+          Navigator.of(context).pushNamed(PatientScreen.routename);
+        },
+      );
+    }).toList();
     return GestureDetector(
       onTap: () {
         if (FocusScope.of(context).hasFocus) {
@@ -77,12 +85,13 @@ class SearchScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
-                  PatientCard(
-                    patient: patients.first,
-                    onTap: () {
-                      Navigator.of(context).pushNamed(PatientScreen.routename);
-                    },
-                  )
+                  ...patientCards,
+                  // PatientCard(
+                  //   patient: patients.first,
+                  //   onTap: () {
+                  //     Navigator.of(context).pushNamed(PatientScreen.routename);
+                  //   },
+                  // )
                 ],
               ),
             ),
@@ -98,7 +107,11 @@ class SearchScreen extends ConsumerWidget {
                     ),
                     visualDensity: VisualDensity.adaptivePlatformDensity,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    ref
+                        .watch(patientsListProvider.notifier)
+                        .searchPatient('abha');
+                  },
                   child: const AutoSizeText(
                     'Search',
                     style: TextStyle(

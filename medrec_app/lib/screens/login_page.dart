@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:medrec_app/screens/create_doctor_profile.dart';
 import 'package:medrec_app/screens/home_page.dart';
 
 import '../providers/auth_provider.dart';
@@ -67,7 +68,8 @@ class _LoginPageState extends State<LoginPage> {
             if (type == Status.login) {
               try {
                 loading();
-                await auth.login(_email.text, _password.text);
+                
+                // await auth.login(_email.text, _password.text);
                 if (!mounted) return;
                 Navigator.pushReplacementNamed(context, HomePage.routename);
               } on Exception {
@@ -75,9 +77,10 @@ class _LoginPageState extends State<LoginPage> {
               }
             } else {
               loading();
-              await auth.signUp(_email.text, _password.text);
+              // await auth.signUp(_email.text, _password.text);
               if (!mounted) return;
-              Navigator.pushReplacementNamed(context, HomePage.routename);
+              Navigator.pushReplacementNamed(
+                  context, CreateDoctorProfileScreen.routename);
             }
           }
 

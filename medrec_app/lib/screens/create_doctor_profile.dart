@@ -9,8 +9,6 @@ import 'package:image_picker/image_picker.dart';
 import '../utils/gender.dart';
 import '../widgets/medrec_text_form.dart';
 
-
-
 final genderProvider = StateProvider.autoDispose<Gender>((ref) {
   return Gender.select;
 });
@@ -20,6 +18,7 @@ final fileProvider = StateProvider.autoDispose<PlatformFile?>((ref) {
 });
 
 class CreateDoctorProfileScreen extends ConsumerStatefulWidget {
+  static const routename = '/create-doctor-profile-screen';
   const CreateDoctorProfileScreen({Key? key}) : super(key: key);
 
   @override

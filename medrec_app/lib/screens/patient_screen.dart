@@ -7,16 +7,30 @@ import 'package:medrec_app/screens/disease_screen.dart';
 import 'package:medrec_app/utils/themes.dart';
 import 'package:medrec_app/widgets/disease_list_tile.dart';
 
+import '../utils/gender.dart';
+import '../widgets/patient_card.dart';
+
 class PatientScreen extends ConsumerWidget {
   static const routename = '/patient';
   const PatientScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final patient = ref.watch(patientProvider);
+    final List<DiseaseListTile> tiles = patient!.diseases.map((disease) {
+      return DiseaseListTile(
+        disease: disease,
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: ((context) =>
+                  DiseaseScreen(prescriptions: disease.prescriptions))));
+        },
+      );
+    }).toList();
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Ms. Pooja',
+        title: Text(
+          patient.fullName,
           style: MedRecTheme.titleStyle,
         ),
       ),
@@ -27,28 +41,29 @@ class PatientScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Center(
+                Center(
                   child: CircleAvatar(
                       radius: 64,
-                      backgroundImage: CachedNetworkImageProvider(
-                          'https://images.pexels.com/photos/4546132/pexels-photo-4546132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')),
+                      backgroundImage:
+                          CachedNetworkImageProvider(patient.imgUrl)),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                const AutoSizeText(
-                  'Age: 15 | Gender: Female',
-                  style: TextStyle(
+                AutoSizeText(
+                  'Age: ${patient.age} | Gender: ${patient.gender == Gender.male ? 'Male' : 'Female'}',
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 const SizedBox(height: 30),
-                DiseaseListTile(
-                  onTap: () {
-                    Navigator.of(context).pushNamed(DiseaseScreen.routename);
-                  },
-                ),
+                ...tiles,
+                // DiseaseListTile(
+                //   onTap: () {
+                //     Navigator.of(context).pushNamed(DiseaseScreen.routename);
+                //   },
+                // ),
               ],
             ),
           ),
