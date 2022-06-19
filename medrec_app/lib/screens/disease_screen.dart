@@ -28,7 +28,7 @@ class DiseaseScreen extends ConsumerWidget {
             right: 20,
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(150, 60),
+                  fixedSize: const Size(200, 60),
                   primary: const Color(0xff2AA4BC),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -36,10 +36,11 @@ class DiseaseScreen extends ConsumerWidget {
                   visualDensity: VisualDensity.adaptivePlatformDensity,
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed(PrescriptionScreen.routename);
+                  Navigator.of(context)
+                      .pushNamed(AddPrescriptionScreen.routename);
                 },
                 child: const AutoSizeText(
-                  'Add Record',
+                  'Add Prescription',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,

@@ -26,20 +26,18 @@ class HomePage extends ConsumerWidget {
                   children: [
                     SizedBox(
                       child: CachedNetworkImage(
-                        // TODO:
-
                         imageUrl:
-                            'https://images.unsplash.com/photo-1644982647869-e1337f992828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
+                            'https://images.unsplash.com/photo-1622253694238-3b22139576c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80',
                         fit: BoxFit.cover,
                       ),
                     ),
                     const Positioned(
                       bottom: 5,
                       left: 5,
-                      child: Text('Dr. Tarika',
+                      child: Text('Dr. Alex',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 22,
                               fontWeight: FontWeight.bold)),
                     ),
                   ],
@@ -65,7 +63,7 @@ class HomePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const AutoSizeText(
-              'Hello Dr. Tarika',
+              'Hello Dr. Alex',
               style: TextStyle(
                   fontSize: 26,
                   letterSpacing: 2.0,
