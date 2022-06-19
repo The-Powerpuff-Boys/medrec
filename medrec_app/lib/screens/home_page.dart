@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medrec_app/screens/add_patient_record_screen.dart';
 import 'package:medrec_app/screens/coming_soon.dart';
+import 'package:medrec_app/screens/login_page.dart';
 import 'package:medrec_app/screens/search_screen.dart';
 import 'package:medrec_app/widgets/cards.dart';
 
@@ -52,7 +53,9 @@ class HomePage extends ConsumerWidget {
             ListTile(
               leading: const FaIcon(FontAwesomeIcons.doorOpen),
               title: const Text('LogOut'),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed(LoginPage.routename);
+              },
             ),
           ],
         ),
