@@ -4,12 +4,12 @@ import '../utils/gender.dart';
 
 class Patient {
   final String fullName;
-  final int age;
+  final String age;
   final String? imgPath;
   final Gender? gender;
   final String imgUrl;
-  final int abha;
-  final Diseases? diseases;
+  final String abha;
+  final List<Diseases> diseases;
   Patient({
     required this.fullName,
     required this.age,
@@ -17,6 +17,6 @@ class Patient {
     required this.imgUrl,
     this.imgPath,
     required this.abha,
-    this.diseases,
+    this.diseases = const [],
   });
 }

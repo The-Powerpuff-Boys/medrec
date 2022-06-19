@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:medrec_app/apis/Patient_record_notifier.dart';
 
+import '../models/patient.dart';
 import '../utils/gender.dart';
 import '../widgets/medrec_text_form.dart';
 
@@ -26,6 +28,9 @@ class _AddPatientRecordScreenState
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _abhaController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
 
   final List<DropdownMenuItem<Gender>> _dropdownMenuItems = [
     const DropdownMenuItem(
@@ -87,6 +92,7 @@ class _AddPatientRecordScreenState
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
           child: SingleChildScrollView(
             child: Form(
+              key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -111,7 +117,7 @@ class _AddPatientRecordScreenState
                   ),
                   MedRecTextForm(
                     label: 'Age',
-                    controller: _abhaController,
+                    controller: _ageController,
                     type: TextInputType.number,
                   ),
                   Container(
@@ -143,7 +149,26 @@ class _AddPatientRecordScreenState
                   const SizedBox(height: 10),
                   Center(
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (!_formKey.currentState!.validate()) {
+                          return;
+                        }
+                        final patient = Patient(
+                          fullName: _nameController.text,
+                          age: _ageController.text,
+                          abha: _abhaController.text,
+                          imgPath: _image?.path,
+                          imgUrl: '',
+                          gender: ref.watch(genderProvider),
+                        );
+
+                        try {
+                          ref.watch(patientsListProvider).add(patient);
+                          Navigator.of(context).pop('$patient');
+                        } on Exception {
+                          rethrow;
+                        }
+                      },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),

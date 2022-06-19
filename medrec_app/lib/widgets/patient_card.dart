@@ -2,10 +2,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:medrec_app/models/patient.dart';
+
+import '../utils/gender.dart';
 
 class PatientCard extends ConsumerWidget {
   final VoidCallback? onTap;
-  const PatientCard({Key? key, this.onTap}) : super(key: key);
+  final Patient patient;
+  const PatientCard({Key? key, this.onTap, required this.patient})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,9 +29,8 @@ class PatientCard extends ConsumerWidget {
           ),
           child: Row(
             children: [
-              const CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider(
-                    'https://images.pexels.com/photos/4546132/pexels-photo-4546132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+              CircleAvatar(
+                backgroundImage: CachedNetworkImageProvider(patient.imgUrl),
                 radius: 48,
               ),
               const SizedBox(width: 15),
@@ -34,24 +38,24 @@ class PatientCard extends ConsumerWidget {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                     AutoSizeText(
-                      'Ms. Pooja',
-                      style: TextStyle(
+                      patient.fullName,
+                      style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     AutoSizeText(
-                      'Age: 15',
-                      style: TextStyle(
+                      'Age: ${patient.age}',
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w100,
                       ),
                     ),
                     AutoSizeText(
-                      'Gender: Female',
-                      style: TextStyle(
+                      'Gender: ${patient.gender == Gender.female ? 'Female' : 'Male'}',
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w100,
                       ),
