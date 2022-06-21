@@ -1,51 +1,38 @@
-const { application } = require("express");
-const express = require("express");
-const passport = require("passport");
-const { register, create } = require("../models/doctor");
-const router = express.Router();
 const Doctor = require("../models/doctor");
 const Patient = require("../models/patient");
 const Disease = require("../models/disease");
-const { isLoggedIn } = require("../middleware"); 
+const express = require("express");
+const router = express.Router();
+const passport = require("passport");
+const { register, create } = require("../models/doctor");
+const { isLoggedIn } = require("../middleware");
 const { route } = require("./user");
 
 router.get("/new", isLoggedIn, (req, res) => {
-  res.render("newpatient");
+  // res.render("newpatient");
+  console.log(req.locals.user);
+
+  res.send("yo");
 });
 
-router.post("/new", async (req, res) => {
+router.post("/new", isLoggedIn, async (req, res) => {
   const { name, age, gender, abha } = req.body;
-  const newPatientDetails = { name, age, gender, abha };
-  newPatientDetails.diseases = [];
-
-  const diseases = ["yellow fever", "cholera", "jaundice"];
-  for (let i = 0; i < diseases.length; i++) {
-    let disease = await Disease.create({ name: diseases[i] });
-    newPatientDetails.diseases.push(disease._id);
-  }
-
-  const newPatient = await new Patient(newPatientDetails);
+  const newPatient = await new Patient({ name, age, gender, abha });
   await newPatient.save();
-  res.send(newPatient);
-  // res.redirect("/");
+  res.redirect("/");
 });
 
-router.get("/", (req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
   res.render("patientinfo");
 });
 
-router.post("/", async (req, res) => {
-  const { abha } = req.body;
-  const patient = await Patient.findOne({ abha });
-  const diseasesArray = []
-  for (let i=0; i < patient.diseases.length; i++) {
-    const disease = await Disease.findById(patient.diseases[i]);
-    diseasesArray.push(disease);
+router.get("/:id", isLoggedIn, async (req, res) => {
+  const abha = req.params.id;
+  const patient = await Patient.findOne({ abha }).populate("diseases");
+  if (!patient) res.redirect("/patientinfo");
+  else {
+    res.render("showdisease", { patient });
   }
-  res.send(diseasesArray);
-
-  // const yoyo = await patient.populate("diseases");
-  // console.log(yoyo);
 });
 
 module.exports = router;

@@ -6,6 +6,10 @@ const doctorSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
+  fname: {
+    type: String,
+    required: true,
+  },
   specialization: {
     type: String,
     required: true,
@@ -20,6 +24,9 @@ const doctorSchema = new mongoose.Schema({
   },
   verified: {
     type: Boolean,
+  },
+  pabha: {
+    type: Number,
   },
 });
 

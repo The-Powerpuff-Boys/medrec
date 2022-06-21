@@ -16,7 +16,7 @@ const patientSchema = new mongoose.Schema({
   diseases: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "disease",
+      ref: "Disease",
     },
   ],
 });

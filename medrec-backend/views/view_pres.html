@@ -15,18 +15,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="./js/signup_form2.js"></script>
-    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="./css/add_pres.css">
 </head>
 
 <body>
     <nav class="navbar navbar-light" style="background-color: #117099;">
-        <a class="navbar-brand" href="/">
-            <img style="margin:0em;" src="../assets/logo white.png" width="40" height="40" alt="">
+        <a class="navbar-brand" href="Home.html">
+            <img style="margin:0em;" src="./Med Rec UI/Med Rec UI/logo white.png" width="40" height="40" alt="">
         </a>
 
         <button style="border:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="drop">
-                <h5 name="drname" style="color:white;"><%= currentUser.username %></h5>
+                <h5 name="drname" style="color:white;">Dr. Kanchuple</h5>
             </div>
         </button>
 
@@ -34,10 +34,10 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/userinfo">Profile</a>
+                    <a class="nav-link" href="#">Profile</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <a class="nav-link" href="#">Logout</a>
                 </li>
 
             </ul>
@@ -46,41 +46,41 @@
         </div>
     </nav>
     <div class="container">
-        <div class="flex">
+        <h2 style="margin-top:1em;">Prescription 1</h2>
+        <form action="/disease/new" method="POST">
 
-            <div class="search">
-                <div>
-                    <!-- <form id="search" action="/patientinfo/info"> -->
-                        <input type="text" id="sb" name="abha" placeholder="Search for patient records with aadhar . . . " required>
-                        <button style="cursor:pointer;border:none; background-color: transparent;" onclick="myfunction()" ><img src="../assets/search.png" height="30px" width="30px"></button>
-                    <!-- </form> -->
-                </div>
-
+            <div style="margin-top:1em;" class="form-group">
+                <label for="FormName">Date</label>
+                <input type="text" class="form-control" id="FormName" placeholder="" readonly>
             </div>
 
-        </div>
-        <center>
-            <% if (true) { %>
-                <img class="image" src="../assets/undraw_Web_search_re_efla.png" height="500px">
-                <div class="image1">
-                <h1>No Data Found!</h1>
-                <img class="image0" src="../assets/undraw_No_data_re_kwbl.png" height="500px">
+            <div style="margin-top:1em;" class="form-group">
+                <label for="FormName">Patient Description</label>
+                <textarea class="form-control" rows="3" id="FormName" placeholder="" readonly></textarea>
             </div>
-                <% }else{ %>  
-            <div class="list-group">
-                <ul>
-                    <% for(let disease of diseases){ %> 
-                    <li href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><%= disease.name %> </h5>
-                        </div>
-                    </li>
-                    <% } %> 
-                </ul>
-                
+
+            <div style="margin-top:1em;" class="form-group">
+                <label for="FormName">Doctor Description</label>
+                <textarea class="form-control" rows="3" id="FormName" placeholder="" readonly></textarea>
             </div>
-            <% } %> 
-        </center>
+            <div class="form-check">
+
+                <input disabled="disabled" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Test Reports
+                  </label>
+            </div>
+            <div style="margin-top:1em;" class="form-group">
+                <label for="FormName">Medicines</label>
+                <textarea class="form-control" rows="3" id="FormName" placeholder="" readonly></textarea>
+            </div>
+
+
+            <center>
+                <button class="btn btn-primary" type="submit">Home</button>
+            </center>
+        </form>
+        </form>
     </div>
 </body>
 

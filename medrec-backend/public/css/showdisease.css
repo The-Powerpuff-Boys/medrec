@@ -11,7 +11,7 @@ body {
   display: inline-block;
 }
 
-#sb {
+.sb {
   border-radius: 2em;
   width: 94%;
   padding: 1em;

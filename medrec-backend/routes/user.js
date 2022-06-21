@@ -7,9 +7,18 @@ const Doctor = require("../models/doctor");
 const { isLoggedIn } = require("../middleware");
 
 router.get("/", isLoggedIn, async (req, res) => {
+  res.render("home");
+});
+
+router.get("/userinfo", async (req, res) => {
   const { _id } = req.user;
   const doctor = await Doctor.findById({ _id });
-  res.render("home", { username: doctor.username });
+  res.render("doctorinfo", {
+    email: doctor.email,
+    specialization: doctor.specialization,
+    gender: doctor.gender,
+    p_no: doctor.p_no,
+  });
 });
 /*
 
@@ -32,10 +41,19 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
-    const { email, username, password, name, specialization, gender, p_no } =
-      req.body;
+    const {
+      email,
+      fname,
+      username,
+      password,
+      name,
+      specialization,
+      gender,
+      p_no,
+    } = req.body;
     const doctor = new Doctor({
       username,
+      fname,
       email,
       name,
       specialization,

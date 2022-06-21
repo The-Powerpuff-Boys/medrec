@@ -8,7 +8,7 @@ const diseaseSchema = new mongoose.Schema({
   prescriptions: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "prescription",
+      ref: "Prescription",
     },
   ],
   lastprescriptiondate: {

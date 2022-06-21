@@ -59,6 +59,11 @@ passport.use(new localStrategy(Doctor.authenticate()));
 passport.serializeUser(Doctor.serializeUser());
 passport.deserializeUser(Doctor.deserializeUser());
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 app.use("/", require("./routes/user"));
 app.use("/patientinfo", require("./routes/patient"));
 app.use("/disease", require("./routes/disease"));
