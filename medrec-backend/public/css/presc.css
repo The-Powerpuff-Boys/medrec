@@ -1,77 +1,86 @@
 body {
-    font-family: "Poppins";
+  font-family: "Poppins";
 }
 
 #adbt {
-    cursor: pointer;
-    border-radius: 1em;
-    float: right;
-    margin-top: 10em;
-    display: block;
+  cursor: pointer;
+  border-radius: 1em;
+  float: right;
+  margin-top: 10em;
+  display: block;
 }
 
 .drop {
-    display: inline-block;
+  display: inline-block;
 }
 
 #sb {
-    border-radius: 2em;
-    width: 94%;
-    padding: 1em;
-    border: 2px solid grey;
+  border-radius: 2em;
+  width: 94%;
+  padding: 1em;
+  border: 2px solid grey;
 }
 
 .search {
-    width: 80%;
+  width: 80%;
 }
 
 .flex {
-    width: 100%;
-    height: 20%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  height: 20%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .Heading {
-    font-weight: 900;
-    font-size: 3em;
-    color: #005EA7;
-    margin-top: 1em;
-    padding: 0em 0em;
+  font-weight: 900;
+  font-size: 3em;
+  color: #005ea7;
+  margin-top: 1em;
+  padding: 0em 0em;
 }
 
 .container {
-    background-color: white;
-    height: 100vh;
-    width: 100%;
-    display: block;
-    padding: 0em;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+  display: block;
+  padding: 0em;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 #pic {
-    border: 2px solid #076384;
-    border-radius: 2em;
-    text-align: center;
+  border: 2px solid #076384;
+  border-radius: 2em;
+  text-align: center;
 }
 
 .left {
-    display: block;
-    width: 50%;
-    padding: 3em;
-    margin-left: 0em;
-    margin-top: 0em;
+  display: block;
+  width: 50%;
+  padding: 3em;
+  margin-left: 0em;
+  margin-top: 0em;
 }
 
 .right {
-    display: block;
-    justify-content: center;
-    width: 50%;
-    padding: 3em;
-    margin-right: 0px;
-    margin-top: 0em;
-    align-items: center;
+  display: block;
+  justify-content: center;
+  width: 50%;
+  padding: 3em;
+  margin-right: 0px;
+  margin-top: 0em;
+  align-items: center;
+}
+
+.pres-link {
+  color: inherit;
+}
+
+.pres-link:hover {
+  text-decoration: none;
+  color: #171717;
 }

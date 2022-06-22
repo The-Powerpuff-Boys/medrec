@@ -10,16 +10,19 @@ const Prescription = require("../models/prescription");
 const { isLoggedIn } = require("../middleware");
 const { route } = require("./user");
 
-router.get("/new", (req, res) => {
+router.get("/:id/new", (req, res) => {
   res.render("newdisease");
 });
 
-router.post("/new", async (req, res) => {
-  const { diseasename } = req.body;
-  const newDisease = await new Disease({ diseasename }).populate(
+router.get("/:id/new/:name", async (req, res) => {
+  const diseasename = req.params.name;
+  const abha = req.params.id;
+  const newDisease = await new Disease({ name: diseasename }).populate(
     "prescriptions"
   );
-  console.log(newDisease);
+  newDisease.save();
+  await Patient.updateOne({ abha: abha }, { $push: { diseases: newDisease } });
+  res.redirect("/patientinfo");
 });
 
 module.exports = router;

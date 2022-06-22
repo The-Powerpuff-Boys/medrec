@@ -25,9 +25,6 @@ const doctorSchema = new mongoose.Schema({
   verified: {
     type: Boolean,
   },
-  pabha: {
-    type: Number,
-  },
 });
 
 doctorSchema.plugin(passportLocalMongoose);

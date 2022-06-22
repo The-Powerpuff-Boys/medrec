@@ -2,16 +2,15 @@ const mongoose = require("mongoose");
 
 const prescriptionSchema = new mongoose.Schema({
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
-  doctorId: {
+  doctorid: {
     type: mongoose.Schema.ObjectId,
     required: true,
   },
   testreport: {
     type: Boolean,
-    required: true,
   },
   patientdesc: {
     type: String,
@@ -28,4 +27,4 @@ const prescriptionSchema = new mongoose.Schema({
   ],
 });
 
-module.expoort = mongoose.model("Prescription", prescriptionSchema);
+module.exports = mongoose.model("Prescription", prescriptionSchema);

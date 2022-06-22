@@ -4,9 +4,13 @@ const passport = require("passport");
 const { register } = require("../models/doctor");
 const router = express.Router();
 const Doctor = require("../models/doctor");
-const { isLoggedIn } = require("../middleware");
+const { isLoggedIn, LoginPage } = require("../middleware");
 
-router.get("/", isLoggedIn, async (req, res) => {
+router.get("/", async (req, res) => {
+  res.render("landing", { user: req.user });
+});
+
+router.get("/home", isLoggedIn, async (req, res) => {
   res.render("home");
 });
 
@@ -35,7 +39,7 @@ router.get("/userinfo", async (req, res) => {
 
 */
 // Login and Signup Routes
-router.get("/signup", (req, res) => {
+router.get("/signup", LoginPage, (req, res) => {
   res.render("signup");
 });
 
@@ -68,7 +72,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.get("/login", (req, res) => {
+router.get("/login", LoginPage, (req, res) => {
   res.render("login");
 });
 
@@ -79,7 +83,7 @@ router.post(
     failureRedirect: "/login",
   }),
   (req, res) => {
-    res.redirect("/");
+    res.redirect("/home");
   }
 );
 
@@ -91,49 +95,5 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/login");
   });
 });
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-// Doctor Info Route
-// router.post("/user/new");
-
-// router.get("/userinfo", isLoggedIn, (req, res) => {
-//   res.send("Getting the user");
-// });
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-// Patient Info Route
 
 module.exports = router;

@@ -15,18 +15,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="./js/signup_form2.js"></script>
-    <link rel="stylesheet" href="./css/add_pres.css">
+    <link rel="stylesheet" href="./css/presc.css">
 </head>
 
 <body>
+    <style>
+        .pres-link{
+            color: inherit;
+        }
+        .pres-link:hover{
+            text-decoration: none;
+            color: #171717;
+        }
+    </style>
     <nav class="navbar navbar-light" style="background-color: #117099;">
-        <a class="navbar-brand" href="Home.html">
-            <img style="margin:0em;" src="./Med Rec UI/Med Rec UI/logo white.png" width="40" height="40" alt="">
-        </a>
 
         <button style="border:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="drop">
-                <h5 name="drname" style="color:white;">Dr. Kanchuple</h5>
+                <h5 style="color:white;"><%= currentUser.username %></h5>
             </div>
         </button>
 
@@ -34,10 +40,10 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
 
             </ul>
@@ -46,41 +52,30 @@
         </div>
     </nav>
     <div class="container">
-        <h2 style="margin-top:1em;">Prescription 1</h2>
-        <form action="/disease/new" method="POST">
 
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Date</label>
-                <input type="text" class="form-control" id="FormName" placeholder="" readonly>
+        <center>
+            <br>
+            <br>
+            <h1><%= disease.name %></h1>
+
+            <div style="margin-top: 5em;" class="list-group">
+                <div class="list">
+                    <ul>
+                        <% for(let pres of disease.prescriptions){ %> 
+                        <li class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="/prescription/<%= pres._id %>/show" class="pres-link"><div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><%= pres.date %></h5>
+                            </div></a>
+                        </li>
+                        <% } %> 
+                    </ul>
+                </div>
+                <form action="/prescription/<%= disease._id %>/new">
+                    <button id="adbt" class="btn btn-primary" type="submit">Add Prescription</button>
+                </form>
             </div>
+        </center>
 
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Patient Description</label>
-                <textarea class="form-control" rows="3" id="FormName" placeholder="" readonly></textarea>
-            </div>
-
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Doctor Description</label>
-                <textarea class="form-control" rows="3" id="FormName" placeholder="" readonly></textarea>
-            </div>
-            <div class="form-check">
-
-                <input disabled="disabled" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Test Reports
-                  </label>
-            </div>
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Medicines</label>
-                <textarea class="form-control" rows="3" id="FormName" placeholder="" readonly></textarea>
-            </div>
-
-
-            <center>
-                <button class="btn btn-primary" type="submit">Home</button>
-            </center>
-        </form>
-        </form>
     </div>
 </body>
 

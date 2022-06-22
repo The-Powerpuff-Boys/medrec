@@ -67,6 +67,7 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/user"));
 app.use("/patientinfo", require("./routes/patient"));
 app.use("/disease", require("./routes/disease"));
+app.use("/prescription", require("./routes/prescription"));
 app.use("/flutter", require("./routes/flutter/api"));
 
 app.listen(port, () => {

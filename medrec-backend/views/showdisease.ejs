@@ -20,7 +20,7 @@
 
 <body>
     <nav class="navbar navbar-light" style="background-color: #117099;">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/home">
             <img style="margin:0em;" src="../assets/logo white.png" width="40" height="40" alt="">
         </a>
 
@@ -52,7 +52,6 @@
                         <input type="text" class="sb" name="abha" placeholder="Search for patient records with aadhar . . . " required>
                         <button style="cursor:pointer;border:none; background-color: transparent;" onclick="myfunction()" ><img src="../assets/search.png" height="30px" width="30px"></button>
                 </div>
-
             </div>
 
         </div>
@@ -60,19 +59,26 @@
             <div class="list-group">
                 <ul>
                     <% for(let disease of patient.diseases){ %> 
-                    <li href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="/prescription/<%= disease._id %>" class="disease-link"><div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1"><%= disease.name %> </h5>
-                        </div>
+                        </div></a>
                     </li>
                     <% } %> 
                 </ul>
                 
             </div>
         </center>
-        <form action="/disease/new">
-            <button class="btn btn-primary add-btn" type="submit">Add Record</button>
-        </form>
+        <!-- <form action="/disease/new"> -->
+            <button class="btn btn-primary add-btn" onclick="patientid()">Add Record</button>
+        <!-- </form> -->
+        <script>
+            function patientid(){
+                const currUrl = location.href;
+                var ret = currUrl.replace('http://localhost:8080/patientinfo','/disease');
+                location.replace(ret+"/new")
+            }
+        </script>
     </div>
 </body>
 

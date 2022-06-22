@@ -2,24 +2,21 @@ const Doctor = require("../models/doctor");
 const Patient = require("../models/patient");
 const Disease = require("../models/disease");
 const express = require("express");
-const router = express.Router();
+var router = express.Router();
 const passport = require("passport");
 const { register, create } = require("../models/doctor");
 const { isLoggedIn } = require("../middleware");
 const { route } = require("./user");
 
 router.get("/new", isLoggedIn, (req, res) => {
-  // res.render("newpatient");
-  console.log(req.locals.user);
-
-  res.send("yo");
+  res.render("newpatient");
 });
 
 router.post("/new", isLoggedIn, async (req, res) => {
   const { name, age, gender, abha } = req.body;
   const newPatient = await new Patient({ name, age, gender, abha });
   await newPatient.save();
-  res.redirect("/");
+  res.redirect("/home");
 });
 
 router.get("/", isLoggedIn, (req, res) => {
