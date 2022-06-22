@@ -22,7 +22,7 @@ router.get("/:id/new/:name", async (req, res) => {
   );
   newDisease.save();
   await Patient.updateOne({ abha: abha }, { $push: { diseases: newDisease } });
-  res.redirect("/patientinfo");
+  res.redirect(`/patientinfo/${abha}`);
 });
 
 module.exports = router;
