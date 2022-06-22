@@ -12,11 +12,10 @@ const { route } = require("./user");
 
 router.get("/:id", isLoggedIn, async (req, res) => {
   try {
-    const abha = req.params.abha;
     const disease = await Disease.findById(req.params.id).populate(
       "prescriptions"
     );
-    res.render("presindex", { abha, disease });
+    res.render("presindex", { disease });
   } catch (error) {
     console.log(error);
     res.render("error");
@@ -36,7 +35,6 @@ router.get("/:id/new", isLoggedIn, (req, res) => {
 router.post("/:id/new", async (req, res) => {
   try {
     const { date, testreport, patientdesc, doctordesc, medicines } = req.body;
-    const doctorid = req.user._id;
     const newPres = await new Prescription({
       date,
       doctorid,

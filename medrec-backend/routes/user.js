@@ -87,4 +87,8 @@ router.get("/logout", isLoggedIn, (req, res) => {
   });
 });
 
+router.get("/yo", (req, res) => {
+  res.send(req);
+});
+
 module.exports = router;

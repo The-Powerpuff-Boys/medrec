@@ -1,4 +1,3 @@
-// const { application } = require("express");
 const express = require("express");
 // const passport = require("passport");
 const { register } = require("../../models/doctor");
@@ -12,120 +11,110 @@ const { route } = require(".././user");
 const { default: mongoose } = require("mongoose");
 const { update } = require("../../models/doctor");
 
-/*
-**************
-**************
-ONLY FOR FLUTTER!!
-*/
-isLoggedIn = true
-/*
-**************
-**************
-*/
+// Completed Routes
 
-// Login Screen
-// Signup Screen
-// Dashboard       ------ frontend
-    // Edit doctor profile
-    // Add new patient
-    // Search Screen
-// Patient Info Screen (diseases)
-// Disease screen
-// Prescription Screen ---- frontend (from disease object)
-
-/*
-
-
-
-
-*/
-// Login Screen
-router.post("/login", async (req, res) => {
-    const doctor = await Doctor.find({email: req.body.email})
-    res.json(doctor);
-})
-/*
-
-
-
-
-*/
-// Signup Screen
 router.post("/signup", async (req, res) => {
-    /**
-     * req.body {
-     * email
-     * specialization
-     * gender
-     * p_no
-     * }
-     */
-    // verified.
-    const doctorData = req.body
-    doctorData.verified = true
-    const doctor = await Doctor.create(doctorData);
-    res.json(doctor);
-})
-/*
+  try {
+    const { email, username, password } = req.body;
+    const fname = "dsad";
+    const specialization = "MBBS";
+    const gender = "no";
+    const p_no = 876876687;
+    const doctor = await new Doctor({
+      username,
+      fname,
+      email,
+      specialization,
+      gender,
+      p_no,
+    });
+    const newDoctor = await Doctor.register(doctor, password);
+    res.status(200).send("Success");
+  } catch (error) {
+    res.status(400).send("Failed");
+  }
+});
 
+router.put("/signup", async (req, res) => {
+  try {
+    const { fname, specialization, gender, p_no, docid } = req.body;
+    const newDoctor = await Doctor.updateOne(
+      { _id: docid },
+      { $set: { fname, specialization, gender, p_no } }
+    );
+    res.status(200).send("Success");
+  } catch (error) {
+    res.status(400).send("Failed");
+  }
+});
 
+router.get("/pres/:id", async (req, res) => {
+  const pres = await Prescription.findById(req.params.id);
+  res.json(pres);
+});
 
+router.post("/addpres", async (req, res) => {
+  const { docname, date, testreport, patientdesc, doctordesc, medicines } =
+    req.body;
+  const doctorid = req.body;
+  const newPres = await new Prescription({
+    date,
+    doctorid,
+    patientdesc,
+    doctordesc,
+    medicines,
+  });
+  await newPres.save();
+  const disease = await Disease.findById(req.params.id).populate(
+    "prescriptions"
+  );
+  await Disease.updateOne(
+    { _id: req.params.id },
+    { $push: { prescriptions: newPres } }
+  );
+  await disease.save();
+  res.status(200).send("Success");
+});
 
-*/
-// Edit doctor profile
-router.post("/editdoctor", async (req, res) => {
-    const newDoctor = req.body;
-    let doctor = await Doctor.findOne({email: newDoctor.email});
-    doctor = newDoctor;
-    const updatedDoctor = await doctor.save();
-    res.json(updatedDoctor);
-})
-/*
-
-
-
-
-*/
-// Add new patient
-router.post("/addPatient", async (req, res) => {
-    const patient = req.body;
-    const response = await Patient.create(patient);
-    res.json(response);
-})
-/*
-
-
-
-
-*/
-// Search Screen
-// Patient Info Screen (diseases)
 router.get("/patientinfo", async (req, res) => {
-    console.log("patientInfo");
-    const { abha } = req.body;  // aadhar card
-    const patient = await Patient.findOne({abha: abha}).populate("diseases");
+  const { abha } = req.body;
+  const patient = await Patient.findOne({ abha }).populate("diseases");
+  res.json(patient);
+});
+
+router.post("/addpatient", async (req, res) => {
+  const { fname, gender, abha, age } = req.body;
+  const newPatient = await new Patient({ name: fname, age, gender, abha });
+  await newPatient.save();
+  res.status(200).send("Success");
+});
+
+router.get("/disease", async (req, res) => {
+  try {
+    const { abha } = req.body;
+    const patient = await Patient.findOne({ abha }).populate("diseases");
     res.json(patient);
-})
-router.post("/newDisease", async (req, res) => {
-    const disease = await Disease.create(req.body);
-    res.json(disease);
-})
-/*
+  } catch (error) {
+    res.json(error);
+  }
+});
 
-
-
-
-*/
-// Disease screen
-router.get("/diseaseinfo", async (req, res) => {
-    const diseaseId = req.body.id;
-    const disease = await Disease.findById(diseaseId).populate("prescriptions")
-    res.json(disease)
-})
-router.post("/addprescription", async (req, res) => {
-    const prescription = await Prescription.create(req.body);
-    res.json(prescription);
-    
-})
+router.post("/newdisease", async (req, res) => {
+  try {
+    const { name, abha } = req.body;
+    const newDisease = await new Disease({ name: name }).populate(
+      "prescriptions"
+    );
+    newDisease.save();
+    await Patient.updateOne(
+      { abha: abha },
+      { $push: { diseases: newDisease } }
+    );
+    res.json(newDisease);
+  } catch (error) {
+    console.log(error);
+    res.render("error");
+  }
+});
 
 module.exports = router;
