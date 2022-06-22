@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -8,7 +12,6 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const MongoStore = require("connect-mongo");
-require("dotenv").config();
 
 const Doctor = require("./models/doctor");
 
