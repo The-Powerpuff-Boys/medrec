@@ -30,37 +30,39 @@
 
         </div>
     </nav>
-        <div class="group">
-            <div class="content1">
-                <div class="left">
-                    <div class="Heading">
-                        <h1>Who are we?</h1>
-    
-                    </div>
-                    <h5>We store the medical history of a patient and it can be accessed by authorized doctors only. We've created a very user-friendly platform so that people start to adopt it as quickly as possible. We've created a cross-platform app as well
-                        as website to use the platform.</h5>
-                        <center>
-                            <div style="padding-top:1em;" class="grp">
-                                <% if(!user){ %> 
-                                <a href="/login"><button type="submit" id="submit" class="btn btn-primary btn-lg">Login</button></a>
-                                <a href="/signup"><button style="margin-left:2em;" type="submit" id="submit" class="btn btn-primary btn-lg">SignUp</button></a>
-                                <% }else{ %>
-                                    <a href="/home"><button type="submit" id="submit" class="btn btn-primary btn-lg">Get Started</button></a>
-                                <% } %> 
-                            </div>
-                        </center>
-    
+    <div class="group">
+        <div class="content1">
+            <div class="left">
+                <div class="Heading">
+                    <h1>Who are we?</h1>
+
                 </div>
-                <div class="right">
-                    <div id="pic">
-                        <img style="width:100%; border-radius: 1em;" src="../assets/doctors-concept-illustration_114360-1515.webp">
-    
+                <h5>We store the medical history of a patient and it can be accessed by authorized doctors only. We've created a very user-friendly platform so that people start to adopt it as quickly as possible. We've created a cross-platform app as well
+                    as website to use the platform.</h5>
+                <center>
+                    <div style="padding-top:1em;" class="grp">
+                        <% if(!user){ %>
+                            <a href="/login"><button type="submit" id="submit" class="btn btn-primary btn-lg">Login</button></a>
+                            <a href="/signup"><button style="margin-left:2em;" type="submit" id="submit" class="btn btn-primary btn-lg">SignUp</button></a>
+                            <% }else{ %>
+                                <a href="/home"><button type="submit" id="submit" class="btn btn-primary btn-lg">Get Started</button></a>
+                                <% } %>
                     </div>
+                </center>
+
+            </div>
+            <div class="right">
+                <div id="pic">
+                    <img style="width:100%; border-radius: 1em;" src="../assets/doctors-concept-illustration_114360-1515.png">
+
                 </div>
             </div>
+        </div>
         <br>
     </div>
-    <center><h1 class="mt-4">We Care about You and Doctors.....</h1></center>
+    <center>
+        <h1 class="mt-4">We Care about You and Doctors.....</h1>
+    </center>
     <footer class="footer">
         <h4 class="mt-1">Med-Rec</h4>
         <p class="sub-p">Centralized Digital Solution for Medical Records</p>
