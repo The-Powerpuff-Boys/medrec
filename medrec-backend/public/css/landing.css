@@ -19,7 +19,7 @@ body {
 
 .group {
   height: 60vh;
-  background-color: rgb(203, 255, 254);
+  background-color: #dff6ff;
   display: flex;
   justify-content: center;
   align-items: center;

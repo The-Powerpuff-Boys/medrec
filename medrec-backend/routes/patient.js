@@ -13,10 +13,15 @@ router.get("/new", isLoggedIn, (req, res) => {
 });
 
 router.post("/new", isLoggedIn, async (req, res) => {
-  const { name, age, gender, abha } = req.body;
-  const newPatient = await new Patient({ name, age, gender, abha });
-  await newPatient.save();
-  res.redirect("/home");
+  try {
+    const { name, age, gender, abha } = req.body;
+    const newPatient = await new Patient({ name, age, gender, abha });
+    await newPatient.save();
+    res.redirect("/home");
+  } catch (error) {
+    console.log(error);
+    res.render("error");
+  }
 });
 
 router.get("/", isLoggedIn, (req, res) => {
@@ -24,11 +29,16 @@ router.get("/", isLoggedIn, (req, res) => {
 });
 
 router.get("/:id", isLoggedIn, async (req, res) => {
-  const abha = req.params.id;
-  const patient = await Patient.findOne({ abha }).populate("diseases");
-  if (!patient) res.redirect("/patientinfo");
-  else {
-    res.render("showdisease", { patient });
+  try {
+    const abha = req.params.id;
+    const patient = await Patient.findOne({ abha }).populate("diseases");
+    if (!patient) res.redirect("/patientinfo");
+    else {
+      res.render("showdisease", { patient });
+    }
+  } catch (error) {
+    console.log(error);
+    res.render("error");
   }
 });
 

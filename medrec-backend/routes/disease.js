@@ -15,14 +15,22 @@ router.get("/:id/new", (req, res) => {
 });
 
 router.get("/:id/new/:name", async (req, res) => {
-  const diseasename = req.params.name;
-  const abha = req.params.id;
-  const newDisease = await new Disease({ name: diseasename }).populate(
-    "prescriptions"
-  );
-  newDisease.save();
-  await Patient.updateOne({ abha: abha }, { $push: { diseases: newDisease } });
-  res.redirect(`/patientinfo/${abha}`);
+  try {
+    const diseasename = req.params.name;
+    const abha = req.params.id;
+    const newDisease = await new Disease({ name: diseasename }).populate(
+      "prescriptions"
+    );
+    newDisease.save();
+    await Patient.updateOne(
+      { abha: abha },
+      { $push: { diseases: newDisease } }
+    );
+    res.redirect(`/patientinfo/${abha}`);
+  } catch (error) {
+    console.log(error);
+    res.render("error");
+  }
 });
 
 module.exports = router;

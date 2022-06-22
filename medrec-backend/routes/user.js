@@ -14,31 +14,22 @@ router.get("/home", isLoggedIn, async (req, res) => {
   res.render("home");
 });
 
-router.get("/userinfo", async (req, res) => {
-  const { _id } = req.user;
-  const doctor = await Doctor.findById({ _id });
-  res.render("doctorinfo", {
-    email: doctor.email,
-    specialization: doctor.specialization,
-    gender: doctor.gender,
-    p_no: doctor.p_no,
-  });
+router.get("/userinfo", isLoggedIn, async (req, res) => {
+  try {
+    const { _id } = req.user;
+    const doctor = await Doctor.findById({ _id });
+    res.render("doctorinfo", {
+      email: doctor.email,
+      specialization: doctor.specialization,
+      gender: doctor.gender,
+      p_no: doctor.p_no,
+    });
+  } catch (error) {
+    console.log(error);
+    res.render("error");
+  }
 });
-/*
 
-
-
-
-
-
-
-
-
-
-
-
-*/
-// Login and Signup Routes
 router.get("/signup", LoginPage, (req, res) => {
   res.render("signup");
 });
@@ -67,8 +58,8 @@ router.post("/signup", async (req, res) => {
     const newDoctor = await Doctor.register(doctor, password);
     res.render("successsignup");
   } catch (error) {
-    res.send("Error Occured while making a new user");
     console.log(error);
+    res.render("error");
   }
 });
 
