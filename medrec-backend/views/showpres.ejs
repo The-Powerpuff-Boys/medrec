@@ -20,9 +20,6 @@
 
 <body>
     <nav class="navbar navbar-light" style="background-color: #117099;">
-        <a class="navbar-brand" href="/home">
-            <img style="margin:0em;" src="../assets/logo white.png" width="40" height="40" alt="">
-        </a>
 
         <button style="border:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="drop">
@@ -32,7 +29,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
@@ -47,34 +46,34 @@
     </nav>
     <div class="container">
         <h2 style="margin-top:1em;">Prescription</h2>
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Date</label>
-                <input type="text" class="form-control" id="FormName" name="date" placeholder=<%= pres.date %> readonly>
-            </div>
+        <div style="margin-top:1em;" class="form-group">
+            <label for="FormName">Date</label>
+            <input type="text" class="form-control" id="FormName" name="date" placeholder=<%=pres.date %> readonly>
+        </div>
 
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Patient Description</label>
-                <textarea class="form-control" rows="3" id="FormName" name="patientdesc" readonly><%= pres.patientdesc %></textarea>
-            </div>
+        <div style="margin-top:1em;" class="form-group">
+            <label for="FormName">Patient Description</label>
+            <textarea class="form-control" rows="3" id="FormName" name="patientdesc" readonly><%= pres.patientdesc %></textarea>
+        </div>
 
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Doctor Description</label>
-                <textarea class="form-control" rows="3" id="FormName" name="doctordesc" readonly><%= pres.doctordesc %></textarea>
-            </div>
-            <!-- <div class="form-check">
+        <div style="margin-top:1em;" class="form-group">
+            <label for="FormName">Doctor Description</label>
+            <textarea class="form-control" rows="3" id="FormName" name="doctordesc" readonly><%= pres.doctordesc %></textarea>
+        </div>
+        <!-- <div class="form-check">
 
                 <input disabled="disabled" class="form-check-input" type="checkbox" value="Yes" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                     Test Reports
                   </label>
             </div> -->
-            <div style="margin-top:1em;" class="form-group">
-                <label for="FormName">Medicines</label>
-                <textarea class="form-control" rows="3" id="FormName" name="medicines" readonly><%= pres.medicines %></textarea>
-            </div>
-            <center>
-                <a href="/home"><button class="btn btn-primary">Home</button></a>
-            </center>
+        <div style="margin-top:1em;" class="form-group">
+            <label for="FormName">Medicines</label>
+            <textarea class="form-control" rows="3" id="FormName" name="medicines" readonly><%= pres.medicines %></textarea>
+        </div>
+        <center>
+            <a href="/home"><button class="btn btn-primary">Home</button></a>
+        </center>
     </div>
 </body>
 

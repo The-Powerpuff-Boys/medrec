@@ -32,7 +32,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
@@ -49,8 +51,8 @@
         <div class="flex">
             <div class="search">
                 <div>
-                        <input type="text" class="sb" name="abha" placeholder="Search for patient records with aadhar . . . " required>
-                        <button style="cursor:pointer;border:none; background-color: transparent;" onclick="myfunction()" ><img src="../assets/search.png" height="30px" width="30px"></button>
+                    <input type="text" class="sb" name="abha" placeholder="Search for patient records with aadhar . . . " required>
+                    <button style="cursor:pointer;border:none; background-color: transparent;" onclick="myfunction()"><img src="../assets/search.png" height="30px" width="30px"></button>
                 </div>
             </div>
 
@@ -58,25 +60,29 @@
         <center>
             <div class="list-group">
                 <ul>
-                    <% for(let disease of patient.diseases){ %> 
-                    <li class="list-group-item list-group-item-action flex-column align-items-start">
-                        <a href="/prescription/<%= disease._id %>" class="disease-link"><div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><%= disease.name %> </h5>
-                        </div></a>
-                    </li>
-                    <% } %> 
+                    <% for(let disease of patient.diseases){ %>
+                        <li class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="/prescription/<%= disease._id %>" class="disease-link">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">
+                                        <%= disease.name %>
+                                    </h5>
+                                </div>
+                            </a>
+                        </li>
+                        <% } %>
                 </ul>
-                
+
             </div>
         </center>
         <!-- <form action="/disease/new"> -->
-            <button class="btn btn-primary add-btn" onclick="patientid()">Add Record</button>
+        <button class="btn btn-primary add-btn" onclick="patientid()">Add Record</button>
         <!-- </form> -->
         <script>
-            function patientid(){
+            function patientid() {
                 const currUrl = location.href;
-                var ret = currUrl.replace('http://localhost:8080/patientinfo','/disease');
-                location.replace(ret+"/new")
+                var ret = currUrl.replace('http://localhost:8080/patientinfo', '/disease');
+                location.replace(ret + "/new")
             }
         </script>
     </div>

@@ -33,7 +33,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
@@ -48,7 +50,8 @@
     </nav>
     <div class="container">
         <div class="Heading">
-            Hello Dr. <%= currentUser.fname %> 
+            Hello Dr.
+            <%= currentUser.fname %>
         </div>
         <small style="display: block;" style="display:inline-block" class="form-text text-muted">How can we help you today?</small>
         <div class="group">

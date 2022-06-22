@@ -20,16 +20,19 @@
 
 <body>
     <style>
-        .pres-link{
+        .pres-link {
             color: inherit;
         }
-        .pres-link:hover{
+        
+        .pres-link:hover {
             text-decoration: none;
             color: #171717;
         }
     </style>
     <nav class="navbar navbar-light" style="background-color: #117099;">
-
+        <a class="navbar-brand" href="/home">
+            <img style="margin:0em;" src="../assets/logo white.png" width="40" height="40" alt="">
+        </a>
         <button style="border:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="drop">
                 <h5 style="color:white;"><%= currentUser.username %></h5>
@@ -38,7 +41,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
@@ -56,18 +61,24 @@
         <center>
             <br>
             <br>
-            <h1><%= disease.name %></h1>
+            <h1>
+                <%= disease.name %>
+            </h1>
 
             <div style="margin-top: 5em;" class="list-group">
                 <div class="list">
                     <ul>
-                        <% for(let pres of disease.prescriptions){ %> 
-                        <li class="list-group-item list-group-item-action flex-column align-items-start">
-                            <a href="/prescription/<%= pres._id %>/show" class="pres-link"><div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1"><%= pres.date %></h5>
-                            </div></a>
-                        </li>
-                        <% } %> 
+                        <% for(let pres of disease.prescriptions){ %>
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="/prescription/<%= pres._id %>/show" class="pres-link">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">
+                                            <%= pres.date %>
+                                        </h5>
+                                    </div>
+                                </a>
+                            </li>
+                            <% } %>
                     </ul>
                 </div>
                 <form action="/prescription/<%= disease._id %>/new">

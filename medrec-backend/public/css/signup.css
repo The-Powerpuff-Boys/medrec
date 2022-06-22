@@ -5,7 +5,7 @@ body {
 .Heading {
     font-weight: 900;
     color: #005EA7;
-    padding: 0px 0px;
+    margin-bottom: 1em;
 }
 
 .web {
@@ -16,30 +16,25 @@ body {
 
 .container {
     box-shadow: 1em 0.5em 1em rgb(215, 215, 215);
-    border-radius: 2em;
+    border-radius: 1em;
     background-color: white;
-    transform: translateY(15vh);
-    height: 70vh;
-    width: 50%;
+    transform: translateY(2.5vh);
+    height: 95vh;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0px 0px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .left {
     width: 50%;
-    padding: 3em;
-    margin-left: 0em;
-    margin-top: 0em;
-}
-
-.left {
-    width: 50%;
-    padding: 3em;
-    margin-left: 0em;
-    margin-top: 0em;
+    padding-top: 6em;
+    padding-bottom: 2em;
+    margin-left: 3em;
+    margin-bottom: 1em;
+    margin-top: 20em;
 }
 
 .right {
@@ -48,13 +43,15 @@ body {
     width: 50%;
     padding: 0px 0px;
     margin-right: 0px;
-    margin-top: 0em;
+    padding-top: 6em;
+    padding-bottom: 2em;
     align-items: center;
 }
 
 .form-control {
     display: block;
     width: 100%;
+    margin-left: 0em;
     /* margin-top: 1em;
     padding-bottom: 1em; */
     border: none;

@@ -20,9 +20,7 @@
 
 <body>
     <nav class="navbar navbar-light" style="background-color: #117099;">
-        <a class="navbar-brand" href="/home">
-            <img style="margin:0em;" src="../assets/logo white.png" width="40" height="40" alt="Med-Rec">
-        </a>
+
 
         <button style="border:none;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="drop">
@@ -34,11 +32,15 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
                 <li>
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
+
 
             </ul>
         </div>
@@ -47,20 +49,19 @@
     </nav>
     <div class="container">
         <!-- <form action="/disease//new" method="POST"> -->
-            <div style="margin-top:5em;" class="form-group">
-                <label for="FormName">Enter Disease Name</label>
-                <input type="text" class="form-control" id="FormName" name="diseasename" placeholder="Disease Name">
-            </div>
-            <button id="adbt" class="btn btn-primary" onclick="getabha()">Add Disease</button>
+        <div style="margin-top:5em;" class="form-group">
+            <label for="FormName">Enter Disease Name</label>
+            <input type="text" class="form-control" id="FormName" name="diseasename" placeholder="Disease Name">
+        </div>
+        <button id="adbt" class="btn btn-primary" onclick="getabha()">Add Disease</button>
         <!-- </form> -->
         <!-- </form> -->
     </div>
     <script>
-        function getabha()
-        {
+        function getabha() {
             let newDisease = document.getElementById("FormName").value;
             const currUrl = location.href;
-            var ret = currUrl.replace('http://localhost:8080','');
+            var ret = currUrl.replace('http://localhost:8080', '');
             location.replace(`${ret}/${newDisease}`);
         }
     </script>

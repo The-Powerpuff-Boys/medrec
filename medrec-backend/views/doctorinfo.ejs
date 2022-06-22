@@ -32,7 +32,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
@@ -47,16 +49,18 @@
     </nav>
     <div class="web">
         <div class="container">
-            <center><h3 class="mb-5">Doctor's Info</h3></center>
+            <center>
+                <h3 class="mb-5">Doctor's Info</h3>
+            </center>
             <div class="form-group">
                 <label>Email</label>
-                <input class="form-control mb-2" type='text' id='email' name="email" value=<%= email %>  readonly>
+                <input class="form-control mb-2" type='text' id='email' name="email" value=<%=email %> readonly>
                 <label>Specialization</label>
-                <input type='text' class="form-control mb-2" id='specialization' name="specialization" value=<%= specialization %> readonly>
+                <input type='text' class="form-control mb-2" id='specialization' name="specialization" value=<%=specialization %> readonly>
                 <label>Gender</label>
-                <input type='text' id='gender' class="form-control mb-2" name="gender" value=<%= gender %> readonly>
+                <input type='text' id='gender' class="form-control mb-2" name="gender" value=<%=gender %> readonly>
                 <label>Phone No.</label>
-                <input type='text' id='phno' class="form-control mb-2" name="phno" value=<%= p_no %> readonly>
+                <input type='text' id='phno' class="form-control mb-2" name="phno" value=<%=p_no %> readonly>
                 <br>
 
                 <button type="button" class="btn btn-success" disabled="disabled">Verified</button>

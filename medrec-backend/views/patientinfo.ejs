@@ -32,7 +32,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/userinfo">Profile</a>
                 </li>
@@ -51,8 +53,8 @@
             <div class="search">
                 <div>
                     <!-- <form id="search" action="/patientinfo/info"> -->
-                        <input type="text" id="sb" name="abha" placeholder="Search for patient records with aadhar . . . " required>
-                        <button style="cursor:pointer;border:none; background-color: transparent;" onclick="myfunction()" ><img src="../assets/search.png" height="30px" width="30px"></button>
+                    <input type="text" id="sb" name="abha" placeholder="Search for patient records with aadhar . . . " required>
+                    <button style="cursor:pointer;border:none; background-color: transparent;" onclick="myfunction()"><img src="../assets/search.png" height="30px" width="30px"></button>
                     <!-- </form> -->
                 </div>
 
@@ -63,23 +65,25 @@
             <% if (true) { %>
                 <img class="image" src="../assets/undraw_Web_search_re_efla.png" height="500px">
                 <div class="image1">
-                <h1>No Data Found!</h1>
-                <img class="image0" src="../assets/undraw_No_data_re_kwbl.png" height="500px">
-            </div>
-                <% }else{ %>  
-            <div class="list-group">
-                <ul>
-                    <% for(let disease of diseases){ %> 
-                    <li href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><%= disease.name %> </h5>
-                        </div>
-                    </li>
-                    <% } %> 
-                </ul>
-                
-            </div>
-            <% } %> 
+                    <h1>No Data Found!</h1>
+                    <img class="image0" src="../assets/undraw_No_data_re_kwbl.png" height="500px">
+                </div>
+                <% }else{ %>
+                    <div class="list-group">
+                        <ul>
+                            <% for(let disease of diseases){ %>
+                                <li href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">
+                                            <%= disease.name %>
+                                        </h5>
+                                    </div>
+                                </li>
+                                <% } %>
+                        </ul>
+
+                    </div>
+                    <% } %>
         </center>
     </div>
 </body>
