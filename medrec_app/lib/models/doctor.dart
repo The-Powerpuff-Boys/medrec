@@ -4,6 +4,7 @@ import 'package:medrec_app/utils/gender.dart';
 
 class Doctor {
   final String fullName;
+  final String? docId; //docid
   final String email;
   final String imgUrl;
   final String specialization;
@@ -11,6 +12,7 @@ class Doctor {
   final int phoneNumber;
   final bool verified;
   Doctor({
+    this.docId,
     required this.fullName,
     required this.email,
     required this.imgUrl,

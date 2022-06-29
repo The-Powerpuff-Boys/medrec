@@ -3,7 +3,7 @@ import 'package:medrec_app/models/diseases.dart';
 import '../utils/gender.dart';
 
 class Patient {
-  final String fullName;
+  final String fullName; // fname
   final String age;
   final String? imgPath;
   final Gender? gender;
