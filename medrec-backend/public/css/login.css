@@ -1,0 +1,160 @@
+body {
+    font-family: "Poppins";
+}
+
+.Heading {
+    font-weight: 900;
+    color: #005EA7;
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: -1em
+}
+
+.web {
+    background-color: whitesmoke;
+    margin: 0px;
+    height: 100vh;
+    overflow: auto;
+}
+
+#lg {
+    margin-right: 2em;
+    float: right;
+    margin-top: -1em;
+    align-self: flex-start;
+    width: 6.5vh;
+}
+
+.top {
+    overflow: hidden;
+    align-items: center;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+.container2 {
+    background-color: transparent;
+    transform: translateY(-10vh);
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    padding: 0px 0px;
+    padding-bottom: 1em;
+}
+
+.container {
+    box-shadow: 1em 0.5em 1em rgb(215, 215, 215);
+    border-radius: 1em;
+    background-color: white;
+    transform: translateY(25vh);
+    height: 50vh;
+    width: 60%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px;
+    overflow: hidden;
+}
+
+.left {
+    width: 50%;
+    padding: auto;
+    margin: auto;
+    margin-left: 2em;
+    padding-bottom: 1em;
+    overflow: auto;
+}
+
+.right {
+    display: block;
+    justify-content: center;
+    width: 50%;
+    padding: 0px 0px;
+    margin-right: 0px;
+    padding-top: 6em;
+    padding-bottom: 2em;
+    align-items: center;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    margin-left: 0em;
+    /* margin-top: 1em;
+    padding-bottom: 1em; */
+    border: none;
+    height: 100%;
+    border-bottom: 1px solid #445366;
+    outline: none;
+    background-color: transparent;
+}
+
+@media screen and (max-height: 860px) {
+    .container {
+        height: 55vh;
+        transform: translateY(22.5vh);
+    }
+}
+
+@media screen and (max-height: 745px) {
+    .container {
+        height: 60vh;
+        transform: translateY(20vh);
+    }
+}
+
+@media screen and (max-height: 686px) {
+    .container {
+        height: 70vh;
+        transform: translateY(15vh);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container2 {
+        width: 100%;
+        overflow: auto;
+        transform: translateY(0vh);
+    }
+    .container {
+        width: 80%;
+    }
+    .right {
+        display: none;
+    }
+    .left {
+        width: 100%;
+        padding-top: 1em;
+        margin-top: 2em;
+        margin-left: 2em;
+    }
+    .form-control {
+        width: 80%;
+    }
+    #l1 {
+        display: block;
+    }
+    #emailHelp {
+        font-size: 0.6em;
+    }
+    .form-control {
+        font-size: 0.8em;
+    }
+    label {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #lg {
+        width: 12%;
+        margin-left: 1em;
+        margin-top: 0em;
+        ;
+    }
+}

@@ -1,0 +1,33 @@
+.web {
+    background-color: whitesmoke;
+    margin: 0%;
+    height: 100vh;
+}
+
+.container {
+    box-shadow: 1em 0.5em 1em rgb(215, 215, 215);
+    border-radius: 2em;
+    background-color: white;
+    transform: translateY(13vh);
+    height: 74vh;
+    width: 50%;
+    display: block;
+    padding: 2em;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.form-group {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 80%;
+        height: 64vh;
+        overflow: auto;
+    }
+    .form-control {
+        width: 100%;
+    }
+}
